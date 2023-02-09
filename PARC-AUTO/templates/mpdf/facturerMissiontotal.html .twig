@@ -1,0 +1,252 @@
+<style type="text/Css">
+	body{
+																																																																																																																																																																																																																																																		     font-family: 'Courier';
+																																																																																																																																																																																																																																																																																																																																																																																																																		
+																																																																																																																																																																																																																																																		 }																																																																																																																																																													
+																																																																																																																																																																																																																																																		 *{
+																																																																																																																																																																																																																																																		     font-family: 'Courier' !important;  
+																																																																																																																																																																																																																																																		 }																																																																																																																																																						
+																																																																																																																																																																																																																																																		 .tabFooter{
+																																																																																																																																																																																																																																																		     
+																																																																																																																																																																																																																																																		     position: fixed;
+																																																																																																																																																																																																																																																		     left: 0;
+																																																																																																																																																																																																																																																		     bottom: 0;
+																																																																																																																																																																																																																																																		     width: 100%;
+																																																																																																																																																																																																																																																		 }
+																																																																																																																																																																																																																																																																																																																																																																																																																		
+																																																																																																																																																																																																																																																		 #tabFooter{
+																																																																																																																																																																																																																																																		     
+																																																																																																																																																																																																																																																		     position: fixed;
+																																																																																																																																																																																																																																																		     left: 0;
+																																																																																																																																																																																																																																																		     bottom: 60px;
+																																																																																																																																																																																																																																																		     width: 100%;
+																																																																																																																																																																																																																																																		 }
+																																																																																																																																																																																																																																																		 #tabFooter_ {
+																																																																																																																																																																																																																																																		  
+																																																																																																																																																																																																																																																		     left: 0;
+																																																																																																																																																																																																																																																		     margin-top: 300px;
+																																																																																																																																																																																																																																																		   
+																																																																																																																																																																																																																																																		     width: 100%;
+																																																																																																																																																																																																																																																		 }
+																																																																																																																																																																																																																																																																																																																																																																																																																		
+																																																																																																																																																																																																																																																		 @page {
+																																																																																																																																																																																																																																																		 margin-top: 0cm;
+																																																																																																																																																																																																																																																		 margin-bottom: 0.5cm;
+																																																																																																																																																																																																																																																		 margin-left: 1cm;
+																																																																																																																																																																																																																																																		 margin-right: 1cm;
+																																																																																																																																																																																																																																																		 font-family: 'Courier' !important;
+																																																																																																																																																																																																																																																		 }
+</style>
+
+<page backtop="35mm" backbottom="10mm" backleft="0mm" backright="0mm">
+	<header>
+		<table style="width: 100%;" align="center" cellspacing="0">
+			<tbody>
+
+				<tr>
+					<td style="width: 35%; text-align: left;">
+						<div style="    line-height: 15px;">
+							<span style="font-size: 11px ;text-transform: uppercase ; font-weight: bold;">SOCIETE AFRICAINE de la logistique</span><br/>
+							{#<span style="font-size: 9px ;">Av. Allal El Fassi Madinat Al Irfane Hay Riad <br> 10000 Rabat</span><br/>#}
+							{#<span style="font-size: 9px ;">Tel : 06.62.01.01.11</span><br/>#}
+								<span style="font-size: 9px ;"> E-mail : centrelogistiquefcz@gmail.com
+							</span><br/>
+						</div>
+					</td>
+					<td style="width: 65%; text-align: right;">
+
+						<img src="{{asset('assets/img/logo.png')}}" alt="logo" style="width: 220px; height: 100px;">
+
+
+					</td>
+				</tr>
+
+			</tbody>
+		</table>
+		<header>
+
+			<table style="width: 100% ;text-align: center;border: 0.3px solid #292929; border-bottom: none;">
+				<tr>
+					{# {% for site in prestation  %} #}
+					<td style="width: 30% ;">
+						<table style="width: 100% ;">
+							<tr>
+								<th style="width: 100% ; font-size: 11px ;font-weight: 200 ; ">DATE FACTURE</th>
+							</tr>
+							<tr>
+								<td style="border-bottom:  solid 0.3px #292929 ;width: 100%"></td>
+							</tr>
+							<tr>
+								<td
+									style="width: 100% ; font-size: 11px ;font-weight: bold">
+									{# {{prestations["date_facture"]}} #}
+
+									2022/202/46
+								</td>
+							</tr>
+						</table>
+					</td>
+					<td style="width: 40% ;font-size: 16px;font-weight: bold ; border-right: 0.3px solid #292929 ; border-left: 0.3px solid #292929;">FACTURE
+					</td>
+					<td style="width: 30% ;">
+						<table style="width: 100% ; background: #FFFFFF; text-align: center">
+							<tr>
+								<th style="width: 100% ; font-size: 11px ;font-weight: 200">CODE FACTURE
+								</th>
+							</tr>
+							<tr>
+								<td
+									style="border-bottom:  solid 0.3px #292929 ;width: 100%">
+									{# {{facture.codeFacture}} #}
+									346346461
+								</td>
+							</tr>
+							<tr>
+
+								<td
+									style="width: 100% ; font-size: 11px ;font-weight: bold">
+									{# {{site['abreviation']}} #}
+									hello from
+								</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+			</tr>
+		</table>
+
+		<table style="width: 100%;border: 0.3px solid #292929">
+			<tr style"font-family: 'courier' !important;">
+				<td style="width: 100% ; height: 10px;">
+					<b>AFFAIRE :</b>
+					<span style="font-size:13px;">
+						FACTURE
+						<span></td>
+					</tr>
+				</td>
+			</tr>
+		</table>
+
+
+		<br/>
+
+		<table cellspacing="0" style="width: 100%; text-align: left; font-size: 12px">
+			<tr>
+				<td style="width: 100% ;background: #292929; color: #fff ;height: 17px"></td>
+			</tr>
+			<tr>
+				<td style="padding: 10px 4px 1px 4px  ; font-weight: bold;font-size: 13px">ETABLISSEMENT : SOCIETE AFRICAINE DE LA LOGISTIQUE</td>
+			</tr>
+			<tr>
+				<td style="padding: 5px 4px 10px 4px ; font-weight: bold;font-size: 11px">POUR LE COMPTE DE :
+				{# {% for site in site %} #}
+					{# {% if site["id"] == facture.mission.iddossier %} #}
+					{# <td>{{site["nom_dossier"]}}</td> #}
+					{# <td>{{site["abreviation"]}}</td> #}
+
+					{# 
+																																													{% endif %} #}
+					{# {% endfor %} #}
+
+				</td>
+			</tr>
+		</table>
+
+
+		<table cellspacing="0" style="width: 100%; text-align: left; font-size: 16px">
+			<tr>
+				<td>
+					<h5 style="padding: 10px 4px  ; text-transform: uppercase;font-weight: bold;font-size: 13px">OBJET : FACTURE</h5>
+				</td>
+			</tr>
+		</table>
+		{% set index = 0 %}
+		<table class="" style="width: 100% ;" cellspacing="0">
+			<tr style="background-color: #292929; color:white !important; ">
+				<th style="width: 10%;padding: 5px ; color:white; font-size: 12px; ">ORD</th>
+				<th style="width: 10%;padding: 5px ; color:white; font-size: 12px; ">DATE DE MISSION</th>
+				<th style="width: 20%;padding: 3px ; color:white; font-size: 12px; ">PRESTATION</th>
+				<th style="width: 70%;padding: 3px; color:white ; font-size: 12px;">VILLE</th>
+				<th style="width: 70%;padding: 3px; color:white ; font-size: 12px;">MONTANT</th>
+				<th style="width: 70%;padding: 3px; color:white ; font-size: 12px;">TOTAL</th>
+
+
+			</tr>
+			{% set total = 0 %}
+
+			{% for prest in prestations %}
+
+
+				<tr>
+
+
+					<td style="width: 10%;text-transform: uppercase ;padding: 3px;font-size: 9px;text-align: center;">{{ index + 1}}</td>
+					<td style="width:20%;text-transform:uppercase;padding:3px;font-size:9px;text-align:center;">{{prest["date_depart"]}}</td>
+					{# {{facture.mission.dateMission | date('Y-m-d')}} #}
+				</tr>
+			</td>
+			<td style="width:70%;text-transform:uppercase;padding:3px;font-size:9px;text-align:center;">
+				<ul>
+
+
+					{{prest["name"]}}</ul>
+
+			</td>
+			<td style="width: 10%;text-transform: uppercase ;padding: 3px;font-size: 9px;text-align: center;">{{prest["ville_mission"]}}</td>
+		</tr>
+	</td>
+	<td style="width:20%;text-transform:uppercase;padding:3px;font-size:9px;text-align:center;">
+		{% if prest["kilometrage"] == 1 %}
+
+			{{prest["tarif"]}}
+		{% else %}
+			{{prest["tarif_prestation"]}}
+		{% endif %}
+		DHS
+	</td>
+	<td>
+		{% if prest["kilometrage"] == 1 %}
+			{% set total = total + prest["tarif"] %}
+		{% else %}
+			{% set total = total + prest["tarif_prestation"] %}
+		{% endif %}
+	</td>
+</tr>{% endfor %}<footer style="text-align:right!important; margin-top:100px;">
+
+<tr>
+	<td colspan="5" class="textform" style="text-align:right!important;font-size: 15px;  font-weight: bold;">Montant à payer:</td>
+
+
+	<td class="totalPosition" style="text-align:right!important;  font-weight: bold;">{{total }}
+		DHS</td>
+</tr></footer></td></table><br><br><br><br><br><page_footer><div id="tabFooter_"><table class="table-footer " id="tabFooter" style="width: 90% ;margin-left:auto;margin-right:auto;" align="center" cellspacing="2">
+<thead>
+	<tr style="background-color: #BEBEBE; font-size: 9px; ">
+		<th style="width: 40%; padding: 3px;text-align: center;font-size: 11px" colspan="2">BESOIN</th>
+		<th style="width: 60%;padding: 3px;text-align: center;font-size: 11px " colspan="3">TRAITEMENT</th>
+	</tr>
+</thead>
+<tbody>
+	<tr>
+		<td style="font-size: 10px; width:15%;">
+			<div style="width:100%;text-align: center;background-color:#e5e5e5;font-size: 11px">SITE</div>
+			<div style="width:100%;text-align: center; height:45px;margin-top:2px"></div>
+		</td>
+		<td style="font-size: 10px; width:15%;">
+			<div style="width:100%;text-align: center;background-color:#e5e5e5;font-size: 11px">RESP. SITE</div>
+			<div style="width:100%;text-align: center; height:45px;margin-top:2px"></div>
+		</td>
+		<td style="font-size: 10px; width:20%;">
+			<div style="width:100%;text-align: center;background-color:#e5e5e5;font-size: 11px">SITE LOGISTIQUE</div>
+			<div style="width:100%;text-align: center; height:45px;margin-top:2px"></div>
+		</td>
+		<td style="font-size: 10px; width:20%;">
+			<div style="width:100%;text-align: center;background-color:#e5e5e5;"></div>
+			<div style="width:100%;text-align: center; height:45px;margin-top:2px"></div>
+		</td>
+		<td style="font-size: 10px; width:20%;">
+			<div style="width:100%;text-align: center;background-color:#e5e5e5;font-size: 11px">RESP. SITE LOGISTIQUE</div>
+			<div style="width:100%;text-align: center; height:45px;margin-top:2px"></div>
+		</td>
+	</tr>
+</tbody></table></div><br></page_footer></page>

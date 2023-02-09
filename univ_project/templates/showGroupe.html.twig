@@ -1,0 +1,77 @@
+{% extends "base.html.twig" %}
+
+{% block title %}groupes
+{% endblock %}
+
+
+{% block contentPage %}
+	<h4 class=" text-center">Groupes</h4>
+	{% block page_contents %}
+
+		<div class="container mt-5">
+
+			<div class="row">
+				<div class="col">
+
+					<table id="dataGroupe" class=" table table-hover  table-striped" style="width:100%">
+
+
+						<thead class="#">
+							<tr class="">
+								<th>Id</th>
+								<th>Groupe</th>
+								<th>Action</th>
+
+							</tr>
+						</thead>
+						<tbody>
+							{# {{dump(app.user.professeur)}} #}
+							{% if is_granted('ROLE_ADMIN') %}
+								{% for groupe in groupes %}
+									<tr>
+										<td scope="row">{{groupe.id}}</td>
+
+										<td>{{groupe.nom}}</td>
+
+
+										<td>
+											<a href="{{path('groupe_show',{id: groupe.id})}}" class="btn btn-sm ">
+												<i class="fa fa-eye"></i>
+											</a>
+										</td>
+									</tr>
+								{% endfor %}
+							{% else %}
+
+								{% for groupe in app.user.professeur.groupes %}
+									<tr>
+										<td scope="row">{{groupe.id}}</td>
+
+										<td>{{groupe.nom}}</td>
+
+
+										<td>
+											<a href="{{path('groupe_show',{id: groupe.id})}}" class="btn btn-light btn-outline-info ">
+												<i class="fa fa-eye"></i>
+											</a>
+										</td>
+										{# <td>{{groupe.nom}}</td> #}
+									</tr>
+								{% endfor %}
+
+
+							{% endif %}
+
+						</tbody>
+					</table>
+
+				</div>
+			</div>
+		</div>
+		<script>
+			$(document).ready(function () {
+$('#dataGroupe').DataTable();
+});
+		</script>
+	{% endblock %}
+{% endblock %}

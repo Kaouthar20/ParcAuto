@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="App\Entity\Facture" table="facture">
+    <indexes>
+      <index name="IDX_FE866410BE6CAE90" columns="mission_id"/>
+    </indexes>
+    <id name="id" type="integer" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="dateFacture" type="datetime" column="date_facture" nullable="false"/>
+    <field name="codeFacture" type="string" column="code_facture" length="255" nullable="false">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="mtTotal" type="float" column="mt_total" precision="10" scale="0" nullable="true">
+      <options>
+        <option name="default">NULL</option>
+      </options>
+    </field>
+    <many-to-one field="mission" target-entity="Mission" fetch="LAZY">
+      <join-columns>
+        <join-column name="mission_id" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

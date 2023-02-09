@@ -1,0 +1,101 @@
+<!-- Button trigger modal -->
+{# <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal{{article.id}}">
+  update
+</button> #}
+
+<!-- Modal -->
+<div class="modal fade" id="modalModifier" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title text-center" id="staticBackdropLabel">Update</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form method="post" class="row g-3">
+			<div class="col-md-6">
+				<label for="exampleInputEmail1" class="form-label">Nom :</label>
+				<input type="text" class="form-control" id="nom" name="nom" aria-describedby="emailHelp"  >
+
+			</div>
+			<div class="col-md-6">
+				<label for="exampleInputEmail1" class="form-label">prix:</label>
+				<input type="float" class="form-control" id="prix" name="prix" aria-describedby="emailHelp" >
+
+			</div>
+			<div class="col-md-6">
+				<label for="exampleInputPassword1" class="form-label">Quantite</label>
+				<input type="number" class="form-control" id="quantite" name="quantite" >
+			</div>
+			<div class="col-md-6">
+				<label for="exampleInputEmail1" class="form-label">code :</label>
+				<input type="number" class="form-control" id="code" name="code"  aria-describedby="emailHelp" >
+
+			</div>
+			<div class="col-md-6">
+				<label for="exampleInputEmail1" class="form-label">date d'experation :</label>
+				<input type="date" class="form-control" id="date" name="date"  aria-describedby="emailHelp">
+
+			</div>
+			<div class="mb-3 form-check">
+				<input type="checkbox" class="form-check-input" id="exampleCheck1">
+				<label class="form-check-label" for="exampleCheck1">Check me out</label>
+			</div>
+		
+			
+		</form>
+      </div>
+      <div class="modal-footer">
+        
+      	<button type="button" class="btn btn-danger btn-sm" data-bs-dismiss="modal">Annuler</button>
+			<button type="submit" class="btn btn-success btn-sm updateArticle">Enregister</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+{# <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+
+	<script>
+		$(document).ready(function () {
+
+$("body").on("click", "#updateArticle", function () {
+
+
+var nom = $("#nom").val();
+var prix = $('#prix').val();
+var quantite = $('#quantite').val();
+var code = $('#code').val();
+var dateExp = $('#date').val();
+
+
+
+$.ajax({
+
+url: "{{ path('update_article') }}",
+method: 'POST',
+data: {
+nom: nom,
+prix: prix,
+quantite: quantite,
+code: code,
+dateExp: dateExp,
+
+
+},
+success: function (result) {
+
+$(".modal").hide();
+$(".modal-backdrop").hide();
+setTimeout(function () {
+alert("Ajoute d'article avec success!")
+}, 200);
+
+}
+});
+})
+
+});
+	</script> #}
+
+

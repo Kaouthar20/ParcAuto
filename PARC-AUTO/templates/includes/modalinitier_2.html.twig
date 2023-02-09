@@ -1,0 +1,280 @@
+
+                            <div class="modal-body" id="modal_initiation">
+                               <div class="card mb-4" style="height: 331px;top:0px;">
+                                  <h5 class="card-header" style="background: #d3dcf3;">LES DONNÉES DU CLIENT :</h5>
+                                  <!-- Account -->
+                              
+                                  <hr class="my-0" />
+                                  <div class="card-body">
+
+
+                                    <form id="formAccountSettings" method="POST"  >
+                                      <div class="row">
+                               
+                                <div class="mb-3 col-md-2">
+                                <label for="lastName" class="form-label">Site</label>
+                                  
+                        
+                             {% for miss in mission %}
+                                
+                                   
+                                   <input class="form-control txtsite" type="text" name="lastName" data-id="{{miss.abreviation}}" id="lastName" value="{{miss.abreviation}}" readonly/>
+                                     
+                                <input class="form-control" type="number" id="valider_mission" at="{{miss.mission}}"  hidden />
+                          
+                          
+                          </div>
+                            <div class="mb-3 col-md-2">
+                            <label for="lastName" class="form-label">Demandeur</label>
+                            <input class="form-control txtDemandeur" type="text" name="lastName" id="lastName" value="{{miss.benificiare}}" readonly/>
+                          </div>
+                          <div class="mb-3 col-md-2">
+                            <label for="email" class="form-label">Npt</label>
+                            <input
+                              class="form-control nptTxt"
+                                readonly
+                              type="number" 
+                              value="{{miss.nb_personnes}}"
+                             
+                             
+                            />
+                          </div>
+
+                          <div class="mb-3 col-md-2">
+                            <label for="organization" class="form-label">Ville de destination :</label>
+                            <input
+                              type="text"
+                              class="form-control"
+                              value="{{miss.ville_mission}}"
+                             readonly
+                            />
+                          </div>
+                          <div class="mb-3 col-md-2">
+
+                            <label class="form-label" for="phoneNumber">Numero Tel :</label>
+                            <div class="input-group input-group-merge">
+                              <span class="input-group-text">MAR (+212)</span>
+                              <input
+                                type="text"
+                                id="phoneNumber"
+                                name="phoneNumber"
+
+                                class="form-control txtNum"
+                                readonly
+                                value="{{miss.telephone}}"
+                              />
+                            </div>
+                          </div>
+
+                          <div class="mb-3 col-md-4">
+                            <label for="address" class="form-label">Address :</label>
+                            <input type="text" class="form-control txtAdress" id="address" name="address" readonly  value="{{miss.adress_mission}}" />
+                          </div>
+                          <div class="mb-3 col-md-2">
+                            <label for="state" class="form-label">Date depart : </label>
+                             <input
+                            class="form-control dtpDepart"
+                            type="datetime-local"
+                            value="{{miss.date_depart}}"
+                            id="html5-datetime-local-input"
+                            readonly
+                          />
+                          </div>
+                          <div class="mb-3 col-md-2">
+                            <label for="zipCode" class="form-label">Date retour : </label>
+                            <input
+                            class="form-control dtpRetour"
+                            type="datetime-local"
+                            value="{{miss.date_retour}}"
+                            readonly
+                            id="html5-datetime-local-input"
+                          />
+                          </div>
+                          <div class="mb-3 col-md-2">
+                            <label class="form-label" for="country">Heure :</label>
+                          <input class="form-control txtHeure" type="time" value="{{miss.heure_depart}}" id="html5-time-input" readonly />
+                          </div>
+                         
+                            {# <div  class="p-4 mt-3 col-md-4" style="width: 270px;padding:0px !important;margin-top:0 !important;margin-left:20px;">
+                              <input class="form-check-input checkWeek" type="checkbox" value="" id="defaultCheck3" checked />
+                              <label class="form-check-label" for="defaultCheck3"> Majoration week-end </label>
+                            </div>
+                             <div  class="p-4 mt-3 col-md-2" style="padding:0px !important;margin-top:0 !important;">
+                              <input class="form-check-input checkNuit" type="checkbox" value="" id="defaultCheck3" checked />
+                              <label class="form-check-label" for="defaultCheck3"> Majoration Nuit </label>
+                            </div>
+                          #}
+                         
+                           <div id="defaultFormControlHelp" class="form-text">
+                          NPT : Nombre des personnes à transporter
+
+                        </div>
+
+                         
+                         
+                         
+                        </div>
+                             {% endfor %}
+                      
+                      </form>
+                     </div>
+                    <!-- /Account -->
+                  </div>
+                 {# <div class="card mb-3" style="height:400px;top: -12px;">
+                    <h5 class="card-header" style="background: #d3dcf3;">CHOIX DES PRESTATIONS :</h5>
+                    <!-- Account --> #}
+                    <label for="" class="idDemandeM"></label>
+                    <hr class="my-0" />
+                    <div class="card-body">
+                      <form id="formAccountSettings" method="POST" onsubmit="return false">
+                        <!-- <div class="row">
+                            
+                         
+                         <div class="mb-3 col-md-3">
+                            <label for="Site" class="form-label">Type du prestation: </label>
+                          
+                                 <select id="country" class="select2 DDLtypeprestation form-select">
+                              <option value="">Type Prestation</option>
+                              {% for item in typePrestation %}
+                                 <option value="{{item.id}}">{{item.designation}}</option>
+                              {% endfor %}
+                             
+                            </select>
+
+                          </div>
+                       
+                          <div class="mb-3 col-md-3">
+                            <label for="Site" class="form-label">Prestation</label>
+                          
+                                 <select id="country" class="select2 DDLprestation form-select">
+                                <option value="">Prestation</option>
+                              
+                             
+                            </select>
+
+                          </div>
+                          <div class="mb-3 col-md-3">
+                            <label for="Site" class="form-label">Type du véhicule: </label>
+                          
+                                 <select id="country" class="select2 DDLtypevehicule form-select">
+                              <option value="">Type Vehicule</option>
+                            
+                             
+                            </select>
+
+                          </div>
+                          <div class="mb-3 col-md-3">
+                            <label for="Site" class="form-label"></label>
+                          
+                                 <button type="button"  class="btn btn-outline-primary btnajouterprestation_2" style="margin-top: 30px;">
+                              <span class="tf-icons bx bx-book-add"></span>&nbsp; Ajouter Prestation
+                            </button>
+
+                         
+                          </div>
+
+                        </div>
+                       -->
+                    
+                          <div class="spacetable" style="height:210px;">
+
+                              <table class="table table-bordered ">
+                              <thead>
+                                <tr style="background: #d3dcf3;">
+                                
+                                  <th>#</th>
+                                  <th>Type Prestation</th>
+                                  <th>Prestation</th>
+                                  <th>Type Vehicule</th>
+                                  <th>Carburant</th>
+                                  <th>jawaz</th>
+                                  <th>Nomber de jour</th>
+                                  <th>Remise</th>
+                                  <th>#</th>
+                                
+                                </tr>
+                              </thead>
+                              <tbody class="table-border-bottom-0 tbodylisteprestation_3">
+                             {% for site in all_sites %}
+                             {% if site.is_valider != 1 %}
+
+                                <tr class="table-default" id="{{site.id}}">
+                                <td><input class="form-check-input" type="checkbox" value="" id="validecheckbox"></td>
+                                <td hidden>{{site.id}}</td>
+                                <td hidden>{{site.idp}}</td>
+                                 <td data-id="2">{{site.designation}}  {{site.id}}</td>
+                                <td data-id="3">{{site.name}}  {{site.idp}}</td>
+                                <td data-id"2"="">{{site.veh}}</td>
+                                <td data-id"2"=""><input type="number" value="0"  class="carburant"/></td>
+                                <td data-id"2"=""><input type="number" value="0" class="jawaz"  /></td>
+                                <td data-id"2"=""><input type="number" value="0"  class="nbrj" /></td>
+                                <td data-id"2"=""><input type="number" value="0"  class="remise" /></td>
+                                <td><button class="btn" at="{{site.id}}" art="{{site.idp}}" > <i class="tf-icons bx bx-task"></i></button></td>
+                                </tr>
+                                {% endif %}
+                                {% endfor %}
+                               
+                              
+                              </tbody>
+                            </table>
+
+                         
+                          
+                        </div>
+                      </form>
+                    </div>
+                    <!-- /Account -->
+                  </div>
+                              </div>
+
+                               <!-- Modal -->
+                        <div class="modal fade" id="modalConfirmationvalidation" tabindex="-1" aria-hidden="true" style="margin-top:30%">
+                        
+                            <div class="modal-dialog modal-dialog-scrollable" role="document">
+                                                      <div class="modal-content" style="width: 500px;left:50px">
+                                                        <div class="modal-header">
+                                                          <h5 class="modal-title" id="modalFullTitle">VALIDER MISSION</h5>
+                                                            <button
+                                                              type="button"
+                                                              class="btn-close"
+                                                              data-bs-dismiss="modal"
+                                                              aria-label="Close"
+                                                            ></button>
+                                                        </div>
+                                                  <div class="modal-body" id="modal_validation">
+                                                       <div class="mb-3">
+                            <label  class="form-label">Carburant</label>
+                            <input class="form-control" type="number" id="carburant"   autofocus="" required>
+                          </div>
+                                                  <div class="mb-3">
+                            <label  class="form-label">Jawaz</label>
+                            <input class="form-control" type="number" id="jawaz"   autofocus="" required>
+                          </div>
+                          <div id="data">
+                          </div>
+                          <div id="data_remise">
+                          </div>
+                          
+                          <div class="form-check mb-3">
+                          <input class="form-check-input" type="checkbox" name="remise" id="remise">
+                          <label class="form-check-label" for="accountActivation">Remise</label>
+                        </div>
+
+                                                  
+
+                       
+
+                           </div>
+                              <div class="modal-footer">
+                                {# <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                                  Close
+                                </button> #}
+                                  {# {% for site in all_sites %} #}
+                                <button type="submit" class="btn btn-primary validerprestation_f" >valider </button>
+                                {# {% endfor %} #}
+                              </div>
+                           
+                            </div>
+                          </div>
+                          {# </div> #}
+    <!-- END -->

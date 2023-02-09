@@ -1,0 +1,397 @@
+{% extends 'base.html.twig' %}
+
+
+{% block stylesheets %}
+        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+        <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style id="savepage-cssvariables">
+               
+        body {
+            background: aliceblue;
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            font-family: Oswald,sans-serif;
+            text-transform: uppercase!important;
+        }
+        .login-back-left {
+            background:#ffffff00 !important;
+        }
+body{
+    text-transform: uppercase!important;
+}
+/* nav bar */
+.brand{
+    opacity: 1 !important;
+    margin-left: 0rem !important;
+    padding: 6px 40px!important;
+}
+ .brand i {
+display: none !important;
+}
+.top-bar .brand span {
+font-weight: bold;
+font-size: 20px;
+}
+/* ----------------------------- */
+
+
+
+.ibox-content, .ibox-title {
+    background-color: #fff;
+    border-image: none;
+    border-color: #e7eaec;
+    color: inherit;
+}
+
+.white-bg{
+    margin: 0px;
+    background-color: #fff;
+}
+.navbar-static-top{
+   padding: 0px;
+    text-align: center;
+    width: 100%;
+}
+.navbar-brand{
+    width: 8rem;
+    color: #fff;
+    font-size: 18px;
+    line-height: 23px;
+}
+.nav {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+}
+.nav-header {
+    padding: 15px 25px!important;
+}
+.nav-header {
+    padding: 0;
+    background-color: #2f4050;
+}
+
+.mr-auto, .mx-auto {
+    margin-right: 89% !important;
+}
+
+.img-logo {
+    width: 23px;
+    height: 23px;
+    display: block;
+    position: relative;
+    left: 2rem;
+    top: -3%;
+    border: 1px solid #e8e8e8;
+}
+.top-navigation .navbar-right {
+    margin-right: 10px;
+}
+.navbar-top-links {
+    text-align: right;
+}
+nav>li>a i {
+    margin-right: 6px;
+}
+.nav>li>a {
+    color: #a7b1c2;
+}
+.navbar .nav-item .nav-link .fa {
+    padding-left: 3px;
+    padding-right: 3px;
+}
+.top-navigation .nav>li>a {
+    padding: 15px 20px;
+    color: #676a6c;
+}
+
+.nav.navbar-right>li>a {
+    color: #999c9e;
+}
+.nav.navbar-top-links a {
+    font-size: 12px;
+}
+.dropdown-toggle::after {
+    content: none;
+}
+.dossier-vertical{
+    position: fixed;
+        display: inline-block;
+    transform: rotate(-90deg);
+    -webkit-transform-origin-y: bottom;
+    font-size: 92px;
+    color: #c5c5c5;
+    top: 220px;
+    left: 10px;
+    text-transform: uppercase;
+    letter-spacing: 10px;
+    font-weight: 700;
+}
+.h1-choix-site {
+    font-size: 30px;
+    color: #676a6c;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+
+.collapse-link2 {
+    cursor: pointer;
+}
+.color-pan {
+    background: #1a89b3;
+    color: #fff;
+}
+.ibox-title {
+    border-style: solid solid none;
+    margin-bottom: 0;
+    padding: 15px 50px 8px 15px;
+    min-height: 48px;
+    position: relative;
+    clear: both;
+}
+.ibox-title h5 {
+    display: inline-block;
+    font-size: 14px;
+    margin: 0 0 7px;
+    padding: 0;
+    text-overflow: ellipsis;
+    float: none;
+}
+.ibox-tools {
+    display: block;
+    float: none;
+    margin-top: 0;
+    padding: 0;
+    text-align: right;
+}
+.ibox-title .pull-right, .ibox-tools {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+}
+.ibox-tools a {
+    cursor: pointer;
+    margin-left: 5px;
+    color: #fff!important;
+}
+.list-group {
+    margin-top: 5px;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+.list-group {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    padding-left: 0;
+    margin-bottom: 0;
+}
+.ibox {
+    clear: both;
+    margin-bottom: -5px;
+    margin-top: 0;
+    padding: 0;
+}
+
+.ibox-title {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-style: solid solid none;
+    border-width: 2px 0 0;
+    margin-bottom: 0;
+    padding: 15px 50px 8px 15px;
+    min-height: 15px;
+    position: relative;
+    clear: both;
+}
+.no-padding .list-group-item:first-child {
+    border: none;
+}
+.list-group {
+    margin-top: 5px;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+.str {
+    font-size: 11px;
+}
+ul{
+list-style: none;
+
+}
+
+
+    </style>
+        
+    
+{% endblock %}
+
+{% block body %}
+
+
+<div class="dossier-vertical" > Dossiers </div>
+
+    <div class="row" style="margin:0rem auto; width:70%">
+                <div class=" col-lg-12">
+                    <h1 class='h1-choix-site'>choix site</h1>
+                </div>
+        {% for site in sites %}
+            
+        <div class="col-lg-12">
+                    <div class="ibox ">
+                                <div class="ibox-title collapse-link2 collapsed-dossier color-pan">
+                                    <h5>{{site.designation}}</h5>
+                                        <div class="ibox-tools">
+                                            <a class="">
+                                                <i class="fa fa-plus i-dossier" style="font-size:16px;"></i>
+                                            </a>
+                                        </div>
+                                </div>
+                                <div class="ibox-content no-padding" style="display: none;">
+                                        
+                                                <ul class="list-group">
+                                                            <li class="list-group-item" style="padding:0px; border-top:none !important">
+                                                                    <div class="ibox" style="border-bottom:0px !important">
+                                                                                <div class="ibox-title  collapse-link2 collapsed-dossier wf-color-dossier" style="border:none !important;margin:0;padding:0; ">
+                                                                                    <a href="#" class="box-app float-left  " data-id="20006" style=" color:#000000 !important;">
+                                                                                    {% for site_a in sites_all %}
+                                                                                     {% if site_a.organisation_id == site.id %}
+                                                                                       <div class="ibox ">
+                                <div class="ibox-title collapse-link2 collapsed-dossier" style="background: lightblue;">
+                                    <h5>{{site_a.nom_dossier }}</h5>
+                                        <div class="ibox-tools">
+                                            <a class="">
+                                                <i class="fa fa-plus i-dossier" style="font-size:16px;"></i>
+                                            </a>
+                                        </div>
+                                </div>
+                                
+                                <div class="ibox-content no-padding" style="display: none;padding:0 20px;margin:0;">
+                                                                     {% for site_aa in sites_all %}
+
+                                                                         {% if site_a.id == site_aa.parent_id %}
+
+                                        
+                                                <ul class="list-group" style="padding:0;margin:0;">
+                                                            <li class="list-group-item " style="padding:0;margin:0; border-top:none !important">
+                                                                    <div class="ibox pdossier" style="border-bottom:0px !important;padding:2px;margin:0;">
+                                                                                <div class="ibox-title  collapse-link2 collapsed-dossier wf-color-dossier" style="border:none !important;padding:0;margin:0; ">
+                                                                                    <a href="#" class="box-app float-left  " data-id="{{site_aa.id }}" style=" color:#000000 !important;">
+                                                                                        <h5>
+                                                                                            <strong class="str" >{{site_aa.nom_dossier }} </strong>
+                                                                                        </h5>
+                                                                                    </a>    
+                                                                                </div>
+                                                                    </div>
+                                                            </li>
+                                                </ul>
+                                                                
+                                                                       {% endif %}
+                                                                                    {% endfor %}
+
+
+                                
+                                </div> 
+                    </div>
+                    {% endif %}
+                                                                                    {% endfor %}
+
+                                                                                    </a>    
+                                                                                </div>
+                                                                    </div>
+                                                            </li>
+                                                </ul>
+                                                                
+                                
+                                </div> 
+                    </div>
+                      
+        {% endfor %}
+
+
+{% endblock %}
+{% block javascripts %}
+  <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+
+<script>
+$(document).ready( function () {
+
+$('body').on('click','.ibox-title',function(){
+    $(this).next('.ibox-content').slideToggle();
+    if( $('.i-dossier',this).hasClass('fa-plus')){
+        $('.i-dossier',this).removeClass('fa-plus').addClass('fa-minus');
+    }
+    else if( $('.i-dossier',this).hasClass('fa-minus')){
+        $('.i-dossier',this).removeClass('fa-minus').addClass('fa-plus');
+    }
+})
+
+
+$('body').on('click','.pdossier',function () {
+   
+    // let typeprestation = $('.DDLtypeprestation option:selected').text();
+    // let typevehicule =$('.DDLtypevehicule option:selected').text();
+    // let prestation =$('.DDLprestation option:selected').text();
+
+    //  let idtypeprestation = $('.DDLtypeprestation option:selected').val();
+    // let idtypevehicule =$('.DDLtypevehicule option:selected').val();
+    // let idprestation =$('.DDLprestation option:selected').val();
+    
+
+    // // alert(typevehicule);
+    // let nbrrow= $('.tbodylisteprestation tr > td:contains('+prestation+') ').length;
+    // if(nbrrow==0){
+    //      $('.tbodylisteprestation tr:last').after('<tr class="table-default"><td data-id="'+idprestation +'">'+prestation+'</td><td data-id="'+idtypeprestation +'">'+typeprestation+'</td><td data-id"'+ idtypevehicule+'">'+typevehicule+'</td><td><button class="btn btn-danger btndeleteprestation">x</button></td></tr>');
+    // }
+    // else{
+    //     alert("prestation deja choisi");
+
+    let dossier = $(this).find('a').attr("data-id");
+
+     $.ajax({
+         type: "post",
+         url:'/getdossier',
+         data :{
+             'iddossier' : dossier,
+         },
+         success:function(data) {
+             // $('.DDLtypevehicule').html(data);
+              //console.log(data);
+            location.href = "/mission";
+          }
+     })
+   
+
+    
+    
+}); 
+
+});
+
+</script>
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js" integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ==" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/mark.js/8.8.3/mark.min.js"></script>
+
+{% endblock %}

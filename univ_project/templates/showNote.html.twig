@@ -1,0 +1,53 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Notes
+{% endblock %}
+
+
+{% block contentPage %}
+<h4 class=" text-center">Liste des notes</h4>
+{% block page_contents %}
+{% if is_granted('ROLE_USER') %}
+
+	<div class="container my-5">
+		{% for message in app.flashes("success") %}
+			<div class="alert alert-success">
+				{{message}}
+			</div>
+		{% endfor %}
+		<div class="row ">
+			<div class="col">
+				<table class="table table-hover table-striped" style="width:100% " id="dataNote">
+
+
+					<thead>
+						<tr class="">
+							<th>Id</th>
+							<th>Note</th>
+							<th>jour</th>
+							<th>observation</th>
+							<th>nom d'etudiant</th>
+							<th>nom de professeur</th>
+
+						</tr>
+					</thead>
+					<tbody>
+						{% for note in notes %}
+							<td scope="row">{{note.id}}</td>
+
+							<td>{{note.note}}</td>
+							<td>{{note.jour|date("Y-m-d")}}</td>
+							<td>{{note.observation}}</td>
+							<td>{{note.etudiant}}</td>
+							<td>{{note.professeur}}</td>
+						</tr>
+					{% endfor %}
+				</tbody>
+
+			</table>
+		</div>
+	</div>
+</div>{% endif %}<script>
+$(document).ready(function () {
+$('#dataNote').DataTable();
+});</script>{% endblock %}{% endblock %}

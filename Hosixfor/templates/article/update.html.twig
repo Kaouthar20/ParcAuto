@@ -1,0 +1,40 @@
+{% extends 'template.html.twig' %}
+
+{% block title %}Update
+{% endblock %}
+
+{% block body %}
+	{# <div class="container sm">
+		<form method="post" action='{{path("update_article",{id: article.id})}}'>
+			<div class="col-md-6">
+				<label for="exampleInputEmail1" class="form-label">Nom :</label>
+				<input type="text" class="form-control" id="nom" name="nom" aria-describedby="emailHelp" value="{{article.nom}}">
+
+			</div>
+			<div class="col-md-6">
+				<label for="exampleInputEmail1" class="form-label">prix:</label>
+				<input type="float" class="form-control" id="prix" name="prix" aria-describedby="emailHelp" value="{{article.prix}}">
+
+			</div>
+			<div class="col-md-6">
+				<label for="exampleInputPassword1" class="form-label">Quantite</label>
+				<input type="number" class="form-control" id="quantite" name="quantite" value="{{article.quantite}}">
+			</div>
+			<div class="col-md-6">
+				<label for="exampleInputEmail1" class="form-label">code :</label>
+				<input type="number" class="form-control" id="code" name="code" value="{{article.code}}" aria-describedby="emailHelp">
+
+			</div>
+			<div class="col-md-6">
+				<label for="exampleInputEmail1" class="form-label">code :</label>
+				<input type="date" class="form-control" id="date" name="date" value="{{article.dateExp | date('d/M/Y')}}" aria-describedby="emailHelp">
+
+			</div>
+			<div class="mb-3 form-check">
+				<input type="checkbox" class="form-check-input" id="exampleCheck1">
+				<label class="form-check-label" for="exampleCheck1">Check me out</label>
+			</div>
+			<button type="submit" class="btn btn-primary">Submit</button>
+		</form>
+	</div> #}
+{% endblock %}

@@ -1,0 +1,156 @@
+{% extends "base.html.twig" %}
+{% block drop
+ %}
+	<div class="dropdown  drop">
+		<button class="btn btn-secondary" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+			<i class="fa-solid fa-caret-down"></i>
+		</button>
+		<ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
+
+			<li>
+				<a class="dropdown-item" href="#">Another action</a>
+			</li>
+			<li>
+				<a class="dropdown-item" href="#">Something else here</a>
+			</li>
+			<li>
+				<a class="dropdown-item" href="#">Separated link</a>
+			</li>
+		</ul>
+	</div>
+{% endblock %}
+{% block body %}
+
+	<div id="body-pd" class="container contente">
+
+		<div class="index " id="contenu_index">
+			<form
+				method="post" action="">
+
+				{# ********* information  charge  ********* #}
+				<div class="panel-heading">
+					<div class="panel-options">
+						<ul class="nav nav-tabs">
+							<li>
+								<a class="nav-link active" href="#">
+									<i class="fa fa-info-circle"></i>
+									Commande
+								</a>
+							</li>
+						</ul>
+					</div>
+					<div class="row mt-2">
+						<div class="col-md-6 b-r ">
+							<div class="form-group row marg-row">
+								<label class="col-sm-4 required" for="reference_doc">reference doc .ass(*)</label>
+								<div class="col-sm-3">
+									<input type="text" id="reference_doc" name="_reference_doc" required="required" maxlength="50" class="form-control form-control-sm " placeholder="Reference doc">
+								</div>
+							</div>
+							<div class="hr-line-dashed"></div>
+							<div class="form-group row marg-row">
+								<label class="col-sm-4 required" for="reference_doc">reference doc .ass(*)</label>
+								<div class="col-sm-3">
+									<input type="text" id="reference_doc" name="_reference_doc" required="required" maxlength="50" class="form-control form-control-sm " placeholder="Reference doc">
+								</div>
+							</div>
+							<div class="hr-line-dashed"></div>
+							<div class="form-group row marg-row">
+								<label class="col-sm-4 required" for="reference_doc">reference doc .ass(*)</label>
+								<div class="col-sm-3">
+									<input type="text" id="reference_doc" name="_reference_doc" required="required" maxlength="50" class="form-control form-control-sm " placeholder="Reference doc">
+								</div>
+							</div>
+							<div class="hr-line-dashed"></div>
+							<div class="form-group row marg-row">
+								<label class="col-sm-4" for="object">object</label>
+								<div class="col-sm-8">
+									<textarea id="object" name="_object" required="required" class="form-control form-control-sm " placeholder="Object"></textarea>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-6 b-r ">
+							<div class="form-group row marg-row">
+								<label class="col-sm-4 required" for="uarticle_code">nature beneficiaire (*)</label>
+								<div class="col-sm-8">
+									<select class="form-select form-select-sm" aria-label=".form-select-sm example">
+										<option selected>Open this select menu</option>
+										<option value="1">One</option>
+										<option value="2">Two</option>
+										<option value="3">Three</option>
+									</select>
+								</div>
+							</div>
+							<div class="hr-line-dashed"></div>
+							<div class="form-group row marg-row">
+								<label class="col-sm-4 required" for="reference_doc">reference doc .ass(*)</label>
+								<div class="col-sm-3">
+									<input type="text" id="reference_doc" name="_reference_doc" required="required" maxlength="50" class="form-control form-control-sm " placeholder="Reference doc">
+								</div>
+							</div>
+							<div class="hr-line-dashed"></div>
+							<div class="form-group row marg-row">
+								<label class="col-sm-4 required" for="date_doc">date doc .ass(*)</label>
+								<div class="col-sm-3">
+									<input type="date" id="date_doc" name="_date_doc" class="form-control form-control-sm ">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col col-btn">
+					<button type="submit" class="btn btn-success top_btn">Enregistrer</button>
+					{# <button type="submit" class="btn btn-success top_btn" id='btn-test'>
+																																																																																																																																																																																				New
+																																																																																																																																																																																			</button> #}
+
+				</div>
+
+				{# ********* detail  charge  ********* #}
+				<div class="panel-heading mt-4">
+					<div class="panel-heading">
+						<div class="panel-options">
+							<ul class="nav nav-tabs">
+								<li>
+									<a class="nav-link active" href="#">
+										<i class="fa fa-info-circle"></i>
+										detail
+									</a>
+								</li>
+							</ul>
+
+
+						</div>
+						<div class="panel-options"></div>
+						<!--Container Main start-->
+						<div class="my-4" style="font-size:10px">
+							<table id="example" class="display" style="width:100%">
+								<thead>
+									<tr>
+										<th>Article</th>
+										<th>Nome</th>
+										<th>Quantité</th>
+										<th>Prix Moyen</th>
+
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+
+										<td>
+											GEL HYDROALCOOLIQUE 70% ALOE VERA 5L (10)
+										</td>
+										<td>2</td>
+										<td>2</td>
+										<td>zs</td>
+									</tr>
+
+
+								</tbody>
+							</table>
+						</div>
+
+						{# {% include "home/popap.html.twig" %} #}
+
+					</div>
+				{% endblock %}

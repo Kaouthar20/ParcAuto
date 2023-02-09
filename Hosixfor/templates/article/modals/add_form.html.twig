@@ -1,0 +1,137 @@
+<!-- Modal -->
+<!-- Button trigger modal -->
+
+<!-- Modal -->
+	<body>
+
+
+		<div id="myModal"> <div class="modal fade" id="form_add" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="form_add">Nouveau article</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+						<form class="row g-3">
+							<div class="col-md-6">
+
+								<label for="nom" class="form-label">Désignation:</label>
+								<input type="text" class="form-control form-control-sm" name="nom" id="nom" >
+							</div>
+							<div class="col-md-6">
+								<label for="prixAchat" class="form-label">Prix d'achat :</label>
+								<input type="float" min="0" class="form-control form-control-sm" name="prixAchat" id="prixAchat" >
+							</div>
+							<div class="col-md-6">
+								<label for="quantite" class="form-label">Quantité :</label>
+								<input type="number" class="form-control form-control-sm" name="quantite" id="quantite" >
+							</div>
+							<div class="col-md-6">
+								<label for="code" class="form-label">Code :</label>
+								<input type="number" class="form-control form-control-sm" name="code" id="code" >
+							</div>
+							<div class="col-md-6">
+								<label for="date" class="form-label">Date d'experation :</label>
+								<input type="date" class="form-control form-control-sm" name="date" id="date" >
+							</div>
+							<div class="col-md-6">
+								<label for="stock" class="form-label">stock :</label>
+								<select class="form-select form-select-sm" name="stock" id="stock" aria-label=".form-select-sm example">
+									<option selected>select un stock</option>
+									{% for stock in stocks %}
+										<option value="{{stock.id}}">{{stock.nom}}</option>
+									{% endfor %}
+								</select>
+							</div>
+							<div class="col-md-6">
+								<label for="famille" class="form-label">Famille :</label>
+								<select class="form-select form-select-sm" name="famille" id="famille" aria-label=".form-select-sm example">
+									<option selected>select une fammille</option>
+									{% for famille in familles %}
+										<option value="{{famille.id}}">{{famille.nom}}</option>
+									{% endfor %}
+								</select>
+							</div>
+							<div class="col-md-6">
+								<label for="typeArticle" class="form-label">Type :</label>
+								<select class="form-select form-select-sm" name="typeArticle" id="typeArticle" aria-label=".form-select-sm example">
+									<option selected>select une type</option>
+									{% for typeArticle in typeArticles %}
+										<option value="{{typeArticle.id}}">{{typeArticle.nom}}</option>
+									{% endfor %}
+								</select>
+							</div>
+
+							<div class="col-md-6">
+							
+							<label for="prixVente" class="form-label">Prix de vente:</label>
+			<input type="float" min="0" class="form-control form-control-sm" name="prixVente" id="prixVente" >	</div>
+		<div class="col-md-6">
+			<label for="tva" class="form-label">TVA :</label>
+			<input type="number" class="form-control form-control-sm" name="tva" id="tva" >
+		</div>
+						
+						</form>
+					</div>
+					<div class="modal-footer">
+<button type="button" class="btn btn-danger btn-sm " data-bs-dismiss="modal">Annuler</button>
+						<button type="button" id="ajoutArticle" class="btn btn-sm btn-success btnAjouterArticle">Enregistrer</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+	<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+
+	<script>
+		$(document).ready(function () {
+
+$("body").on("click", "#ajoutArticle", function () {
+
+
+var nom = $("#nom").val();
+var prixAchat = $('#prixAchat').val();
+var quantite = $('#quantite').val();
+var code = $('#code').val();
+var dateExp = $('#date').val();
+var stock = $('#stock').val();
+var famille = $('#famille').val();
+var typeArticle = $('#typeArticle').val();
+var prixVente = $('#prixVente').val();
+var tva = $('#tva').val();
+
+$.ajax({
+
+url: "{{ path('new_article') }}",
+method: 'POST',
+data: {
+nom: nom,
+prixAchat: prixAchat,
+quantite: quantite,
+code: code,
+dateExp: dateExp,
+idstock: stock,
+idfamille: famille,
+idtypeArticle: typeArticle,
+prixVente: prixVente,
+tva: tva
+
+},
+success: function (result) {
+
+$(".modal").hide();
+$(".modal-backdrop").hide();
+setTimeout(function () {
+alert("Ajoute d'article avec success!")
+}, 200);
+
+}
+});
+})
+
+});
+	</script>
+</body>

@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="App\Entity\Mission" table="mission">
+    <indexes>
+      <index name="IDX_9067F23CF16F4AC6" columns="conducteur_id"/>
+      <index name="IDX_9067F23CF6BD1646" columns="site_id"/>
+      <index name="IDX_9067F23CA76ED395" columns="user_id"/>
+    </indexes>
+    <unique-constraints>
+      <unique-constraint name="UNIQ_9067F23CBF516DC4" columns="frais_id"/>
+    </unique-constraints>
+    <id name="id" type="integer" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="userId" type="integer" column="user_id" nullable="true">
+      <options>
+        <option name="unsigned"/>
+        <option name="default">NULL</option>
+      </options>
+    </field>
+    <field name="dateMission" type="datetime" column="date_mission" nullable="true">
+      <options>
+        <option name="default">NULL</option>
+      </options>
+    </field>
+    <field name="villeMission" type="string" column="ville_mission" length="255" nullable="true">
+      <options>
+        <option name="fixed"/>
+        <option name="default">NULL</option>
+      </options>
+    </field>
+    <field name="adressMission" type="string" column="adress_mission" length="255" nullable="true">
+      <options>
+        <option name="fixed"/>
+        <option name="default">NULL</option>
+      </options>
+    </field>
+    <field name="kmDepart" type="float" column="km_depart" precision="10" scale="0" nullable="true">
+      <options>
+        <option name="default">NULL</option>
+      </options>
+    </field>
+    <field name="kmRetour" type="float" column="km_retour" precision="10" scale="0" nullable="true">
+      <options>
+        <option name="default">NULL</option>
+      </options>
+    </field>
+    <field name="dateDepart" type="datetime" column="date_depart" nullable="true">
+      <options>
+        <option name="default">NULL</option>
+      </options>
+    </field>
+    <field name="dateRetour" type="datetime" column="date_retour" nullable="true">
+      <options>
+        <option name="default">NULL</option>
+      </options>
+    </field>
+    <field name="benificaire" type="string" column="benificaire" length="255" nullable="true">
+      <options>
+        <option name="fixed"/>
+        <option name="default">NULL</option>
+      </options>
+    </field>
+    <field name="nbPersonnes" type="integer" column="nb_personnes" nullable="true">
+      <options>
+        <option name="unsigned"/>
+        <option name="default">NULL</option>
+      </options>
+    </field>
+    <field name="tele" type="string" column="tele" length="255" nullable="true">
+      <options>
+        <option name="fixed"/>
+        <option name="default">NULL</option>
+      </options>
+    </field>
+    <field name="validation" type="boolean" column="validation" nullable="true">
+      <options>
+        <option name="default">NULL</option>
+      </options>
+    </field>
+    <field name="heureDepart" type="string" column="heure_depart" length="10" nullable="true">
+      <options>
+        <option name="fixed"/>
+        <option name="default">NULL</option>
+      </options>
+    </field>
+    <field name="cin" type="string" column="cin" length="20" nullable="true">
+      <options>
+        <option name="fixed"/>
+        <option name="default">NULL</option>
+      </options>
+    </field>
+    <field name="conducteurId" type="integer" column="conducteur_id" nullable="true">
+      <options>
+        <option name="unsigned"/>
+        <option name="default">NULL</option>
+      </options>
+    </field>
+    <field name="matriculeVehicule" type="string" column="matricule_vehicule" length="255" nullable="true">
+      <options>
+        <option name="fixed"/>
+        <option name="default">NULL</option>
+      </options>
+    </field>
+    <field name="isFactured" type="boolean" column="is_factured" nullable="true">
+      <options>
+        <option name="default">NULL</option>
+      </options>
+    </field>
+    <field name="siteId" type="integer" column="site_id" nullable="true">
+      <options>
+        <option name="unsigned"/>
+        <option name="default">NULL</option>
+      </options>
+    </field>
+    <field name="codeMission" type="string" column="code_mission" length="255" nullable="true">
+      <options>
+        <option name="fixed"/>
+        <option name="default">NULL</option>
+      </options>
+    </field>
+    <field name="isSuspended" type="boolean" column="is_suspended" nullable="true">
+      <options>
+        <option name="default">NULL</option>
+      </options>
+    </field>
+    <field name="fraisId" type="integer" column="frais_id" nullable="true">
+      <options>
+        <option name="unsigned"/>
+        <option name="default">NULL</option>
+      </options>
+    </field>
+    <field name="userInitier" type="string" column="user_initier" length="255" nullable="true">
+      <options>
+        <option name="fixed"/>
+        <option name="default">NULL</option>
+      </options>
+    </field>
+    <field name="userValider" type="string" column="user_valider" length="255" nullable="true">
+      <options>
+        <option name="fixed"/>
+        <option name="default">NULL</option>
+      </options>
+    </field>
+    <field name="userFacturer" type="string" column="user_facturer" length="255" nullable="true">
+      <options>
+        <option name="fixed"/>
+        <option name="default">NULL</option>
+      </options>
+    </field>
+    <field name="userAddMission" type="string" column="user_add_mission" length="255" nullable="true">
+      <options>
+        <option name="fixed"/>
+        <option name="default">NULL</option>
+      </options>
+    </field>
+    <field name="numFactureUgouv" type="string" column="num_facture_ugouv" length="255" nullable="true">
+      <options>
+        <option name="fixed"/>
+        <option name="default">NULL</option>
+      </options>
+    </field>
+    <field name="mtFactureUgouv" type="float" column="mt_facture_ugouv" precision="10" scale="0" nullable="true">
+      <options>
+        <option name="default">NULL</option>
+      </options>
+    </field>
+    <field name="nomPrestation" type="string" column="nom_prestation" length="255" nullable="true">
+      <options>
+        <option name="fixed"/>
+        <option name="default">NULL</option>
+      </options>
+    </field>
+    <many-to-many field="prestation" target-entity="Prestation" inversed-by="mission" fetch="LAZY">
+      <join-table name="mission_prestation">
+        <join-columns>
+          <join-column name="mission_id" referenced-column-name="id"/>
+        </join-columns>
+        <inverse-join-columns>
+          <join-column name="prestation_id" referenced-column-name="id"/>
+        </inverse-join-columns>
+      </join-table>
+    </many-to-many>
+  </entity>
+</doctrine-mapping>

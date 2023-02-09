@@ -1,0 +1,127 @@
+:root {
+  --header-height: 3rem;
+  --nav-width: 68px;
+  --first-color: #273755;
+  --white-color: #fff;
+  --black-color: #333;
+  --body-font: 'Poppins', sans-serif;
+  --normal-font-size: 12px;
+  --z-fixed: 100;
+}
+* {
+  /* font-family: var(--body-font); */
+  font-size: var(--normal-font-size);
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-transform: capitalize;
+  outline: none;
+  border: none;
+  text-decoration: none;
+}
+
+body::before {
+  content: ''; /* Important */
+  z-index: -1; /* Important */
+  position: inherit;
+  left: inherit;
+  top: inherit;
+  width: inherit;
+  height: inherit;
+  background-image: inherit;
+  background-size: cover;
+  filter: blur(5px);
+}
+body {
+  background-image: url(../images/photo-3.jpg);
+  background-size: 0 0; /* Image should not be drawn here */
+  width: 100%;
+  height: 100%;
+  position: fixed; /* Or absolute for scrollable backgrounds */
+}
+
+.container {
+  margin: 20px auto;
+  max-width: 700px;
+}
+
+.container .heading {
+  text-align: center;
+  font-size: 25px;
+  padding: 15px;
+  margin-bottom: 15px;
+  color: var(--white-color);
+}
+
+.container .heading:hover {
+  font-size: 26px;
+
+  color: var(--first-color);
+}
+
+.container .accordion-container {
+  padding: 0 20px;
+}
+
+.container .accordion-container .accordion {
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+.container .accordion-container .accordion.active .accordion-heading {
+  background: var(--first-color);
+}
+
+.container .accordion-container .accordion.active .accordion-heading h3 {
+  color: var(--white-color);
+}
+
+.container .accordion-container .accordion.active .accordion-heading i {
+  color: var(--white-color);
+  transform: rotate(180deg);
+  transition: transform 0.2s 0.1s;
+  font-size: 15px;
+}
+
+.container .accordion-container .accordion.active .accordion-content {
+  display: block;
+}
+.container .accordion-container .accordion.active .accordion-content a {
+  text-decoration: none;
+  color: var(--black-color);
+  font-size: 14px;
+}
+
+.container .accordion-container .accordion .accordion-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  background: var(--white-color);
+  padding: 15px 20px;
+}
+
+.container .accordion-container .accordion .accordion-heading h3 {
+  font-size: 18px;
+}
+
+.container .accordion-container .accordion .accordion-heading i {
+  font-size: 25px;
+}
+
+.container .accordion-container .accordion .accordion-content {
+  padding: 15px 20px;
+  font-size: 15px;
+  background: var(--white-color);
+  border-top: 0;
+  display: none;
+  animation: animate 0.2s linear backwards;
+  line-height: 2;
+  transform-origin: top;
+}
+
+@keyframes animate {
+  0% {
+    transform: scaleY(0);
+  }
+}

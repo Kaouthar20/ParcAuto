@@ -1,0 +1,37 @@
+{% extends "base.html.twig" %}
+
+{% block title %}groupe
+{% endblock %}
+{% block contentPage %}
+
+	{% block page_contents %}
+
+		<div class="container d-flex flex-row mx-5">
+
+			<table id="encadrerPar" class="table table-hover mx-5" style="width: 50rem;">
+				<thead>
+					<tr class="">
+						<th>nom de groupe</th>
+
+
+					</tr>
+				</thead>
+				<tbody>
+					{% for group in professeur.groupes %}
+						<tr class="">
+
+							<td>{{groupe.groupes}}</td>
+
+
+						</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		</div>
+		<script>
+			$(document).ready(function () {
+$('#encadrerPar').DataTable();
+});
+		</script>
+	{% endblock %}
+{% endblock %}

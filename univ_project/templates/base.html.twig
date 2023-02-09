@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+	<head>
+		<meta charset="UTF-8">
+		<title>
+			{% block title %}Welcome!
+			{% endblock %}
+		</title>
+		{% block stylesheets %}
+			<meta name="viewport" content="width=device-width, initial-scale=1.0">
+			<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+			<link rel="stylesheet" href="{{asset('fontawesome/css/all.min.css')}}">
+			<link rel="stylesheet" href="{{asset('boxicons-2.1.1/css/boxicons.min.css')}}">
+			<link rel="stylesheet" href="{{asset('css/sideBar.css')}}">
+			<link rel="stylesheet" href="{{asset('datatable/css/bootstrap.min.css')}}">
+			<link rel="stylesheet" href="{{asset('datatable/css/dataTables.bootstrap5.min.css')}}">
+		{% endblock %}
+		{% block javascripts %}
+			<script src="{{asset('boots/js/bootstrap.bundle.min.js')}}"></script>
+			<script src="{{asset('datatable/jquery-3.5.1.js')}}"></script>
+			<script src="{{asset('datatable/js/jquery.dataTables.min.js')}}"></script>
+			<script src="{{asset('datatable/js/dataTables.bootstrap5.min.js')}}"></script>
+			<script src="{{asset('fontawesome/js/all.min.js')}}"></script>
+		{% endblock %}
+	</head>
+	<body>
+		{% block body %}
+
+			{% block sidebar %}
+
+				<div class="sidebar close">
+					<div class="logo-details">
+						<i class='bx bxs-school'></i>
+						<span class="logo_name">UNIV</span>
+					</div>
+					<ul class="nav-links">
+						<li>
+							<a href="{{path('myApp')}}">
+								<i class='bx bx-grid-alt icon'></i>
+								<span class="link_name">Accueil</span>
+							</a>
+							<ul class="sub-menu blank">
+								<li>
+
+									<a class="link_name" href="{{path('myApp')}}">Acucueil</a>
+								</li>
+							</ul>
+						</li>
+
+						<li>
+
+							<a href="{{path('profs_liste')}}">
+								<i class='bx bx-user icon'></i>
+								<span class="link_name">Utilisateur</span>
+							</a>
+							<ul class="sub-menu blank">
+								<li>
+									<a class="link_name" href="{{path('profs_liste')}}">Professeur</a>
+								</li>
+							</ul>
+						</li>
+						<li>
+
+							<a href="{{path('etudiant_liste')}}">
+								<i class="fas fa-user-graduate icon"></i>
+								<span class="link_name">Etudiant</span>
+							</a>
+							<ul class="sub-menu blank">
+								<li>
+									<a class="link_name" href="{{path('etudiant_liste')}}">Etudiant</a>
+								</li>
+							</ul>
+						</li>
+
+						<li>
+							<a href="{{path('groupe_liste')}}">
+								<i class='bx bx-group icon'></i>
+								<span class="link_name">Groupe</span>
+							</a>
+							<ul class="sub-menu blank">
+								<li>
+									<a class="link_name" href="{{path('groupe_liste')}}">Groupe</a>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<a href="{{path('notes_liste')}}">
+								<i class='bx bx-note icon'></i>
+								<span class="link_name">Notes</span>
+							</a>
+							<ul class="sub-menu blank">
+								<li>
+									<a class="link_name" href="{{path('notes_liste')}}">Notes</a>
+								</li>
+							</ul>
+						</li>
+
+						<div class="profile-details">
+							<div class="profile-content">
+								<img src="/images/user_profile.png" alt="profileImg">
+								{% if app.user %}
+									<div class="profile_name">
+										{{app.user.username}}
+										<div>
+											<a
+												class="link-name" href="{{path('logout')}}">
+
+												{# <i class="fas fa-sign-out-alt"></i> #}
+												<span class="link_name icon">Logout</span>
+
+											</a>
+										</div>
+									</div>
+
+								{% else %}
+									<a class="link-name" href="{{path('login')}}">
+
+										<span class="link_name">Login</span>
+										{# <i class="fas fa-sign-in-alt"></i> #}
+									</a>
+
+
+									<a class="link-name" href="{{path('app_register')}}">
+
+										<span class="link_name">Register</span>
+										{# <i class="fas fa-registered"></i> #}
+									</a>
+
+								{% endif %}
+							</div>
+
+
+						</div>
+					</ul>
+				</div>
+			{% endblock %}
+			<section class="home-section">
+				<div class="home-content">
+					<i class='bx bx-menu'></i>
+					<span class="text"></span>
+				</div>
+				<div id="contentPage">
+					{% block contentPage %}{% endblock %}
+				</div>
+			</section>
+
+			<script src="{{asset('js/sideBar/basescript.js')}}"></script>
+		{% endblock %}
+	</body>
+</html>

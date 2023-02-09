@@ -1,0 +1,64 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Notes
+{% endblock %}
+
+{% block contentPage %}
+
+	{% block page_contents %}
+
+
+		<button id="showCard" class="btn btn-outline-info btn-sm">Show card</button>
+
+		<div class="container d-flex flex-row mx-4" style="justify-content: space-between">
+
+			<div class="card bg-light cardEtudiant" style="width: 18rem; display:none;">
+				<img src="/images/etudiant.png" class="card-img-top " alt="...">
+
+				<div class="card-body bg-light ">
+
+
+					<ul class="list-group  list-group-flush ">
+						<li class="list-group-item bg-light text-success">{{etudiant.nom}}</li>
+						<li class="list-group-item bg-light text-success ">{{etudiant.id}}</li>
+						<li class="list-group-item bg-light text-success">{{etudiant.cne}}</li>
+						<li class="list-group-item bg-light text-success">{{etudiant.telephone}}</li>
+						<li class="list-group-item bg-light text-success">{{etudiant.email}}</li>
+						<li class="list-group-item bg-light text-success">{{etudiant.groupe}}</li>
+					</ul>
+				</div>
+			</div>
+			<table id="dataNoteEtudiant" class="table table-hover" style="width: 50rem;">
+				<thead>
+					<tr class="">
+						<th>jour</th>
+						<th>note</th>
+						<th>Observation</th>
+						<th>Ajouter par</th>
+
+					</tr>
+				</thead>
+				<tbody>
+					{% for note in etudiant.notes %}
+						<tr class="">
+							<td>{{note.jour | date("d/m/Y")}}</td>
+							<td>{{note.note}}</td>
+							<td>{{note.observation}}</td>
+							<td>{{note.professeur.nom}}</td>
+
+						</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		</div>
+		<script>
+			$(document).ready(function () {
+$('#dataNoteEtudiant').DataTable();
+
+$("#showCard").on("click", function () {
+$(".cardEtudiant").fadeToggle();
+})
+});
+		</script>
+	{% endblock %}
+{% endblock %}

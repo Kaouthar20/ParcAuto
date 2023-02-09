@@ -1,0 +1,527 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello MissionController!{% endblock %}
+
+{% block body %}
+<style>
+body{
+  overflow:hidden;
+}
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+    .btn-buy-now {
+
+
+    }
+    .row {
+      margin-bottom: 20px;
+    }
+       
+    .button.button-small {
+      height: 30px;
+      line-height: 30px;
+      padding: 0px 10px;
+    }
+    
+    td input[type=text],
+    td select {
+      width: 100%;
+      height: 30px;
+      margin: 0;
+      padding: 2px 8px;
+    }
+    
+    th:last-child {
+      text-align: right;
+    }
+    
+    td:last-child {
+      text-align: right;
+    }
+    
+    td:last-child .button {
+      width: 30px;
+      height: 30px;
+      text-align: center;
+      padding: 0px;
+      margin-bottom: 0px;
+      margin-right: 5px;
+      background-color: #FFF;
+    }
+    
+    td:last-child .button .fa {
+      line-height: 30px;
+      width: 30px;
+    }
+</style>
+<!DOCTYPE html>
+
+<!-- =========================================================
+* Sneat - Bootstrap 5 HTML Admin Template - Pro | v1.0.0
+==============================================================
+
+* Product Page: https://themeselection.com/products/sneat-bootstrap-html-admin-template/
+* Created by: ThemeSelection
+* License: You must have a valid license purchased in order to legally use the theme for your project.
+* Copyright ThemeSelection (https://themeselection.com)
+
+=========================================================
+ -->
+<!-- beautify ignore:start -->
+<html
+  lang="en"
+  class="light-style layout-menu-fixed"
+  dir="ltr"
+  data-theme="theme-default"
+  data-assets-path="/assets/"
+  data-template="vertical-menu-template-free"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
+    />
+
+    <title>Dashboard - Analytics | Sneat - Bootstrap 5 HTML Admin Template - Pro</title>
+
+    <meta name="description" content="" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/assets/img/favicon/favicon.ico" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+      rel="stylesheet"
+    />
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css'>
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css'><link rel="stylesheet" href="./style.css">
+
+    <!-- Icons. Uncomment required icon fonts -->
+    <link rel="stylesheet" href="/assets/vendor/fonts/boxicons.css" />
+
+    <!-- Core CSS -->
+    <link rel="stylesheet" href="/assets/vendor/css/core.css" class="template-customizer-core-css" />
+    <link rel="stylesheet" href="/assets/vendor/css/theme-default.css" class="template-customizer-theme-css" />
+    <link rel="stylesheet" href="/assets/css/demo.css" />
+
+    <!-- Vendors CSS -->
+    <link rel="stylesheet" href="/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+
+    <link rel="stylesheet" href="/assets/vendor/libs/apex-charts/apex-charts.css" />
+
+    <!-- Page CSS -->
+
+    <!-- Helpers -->
+  
+  </head>
+
+  <body>
+    <!-- Layout wrapper -->
+    <div class="layout-wrapper layout-content-navbar">
+      <div class="layout-container">
+        <!-- Menu -->
+
+      {{ parent() }}
+
+        <!-- Layout container -->
+        <div class="layout-page">
+          <!-- Navbar -->
+
+         
+
+          <!-- / Navbar -->
+
+          <!-- Content wrapper -->
+          <div class="content-wrapper">
+            <!-- Content -->
+
+            <div class="container-xxl flex-grow-1 container-p-y">
+              <div class="row">
+                  <!-- Contextual Classes -->
+
+              <div class="card" style="height: 900px;">
+               <h5 class="card-header">Liste des Vehicule <div style="margin-left: 260px;
+    font-size: 15px;
+    width: 340px;" class="form-check form-check-inline">
+                      
+
+                          </div>
+              
+                          
+                         </h5>
+                  
+            <div class="container">
+
+  <div class="row">
+    <div class="col-md-12">
+      <br>
+      <button class="btn btn-default pull-right add-row"><i class="fa fa-plus"></i>&nbsp;&nbsp; Add Row</button>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12"  style="height: 700px;overflow-y: scroll;">
+      <table class="table table-bordered" id="editableTable">
+        <thead>
+          <tr style="background: #e7e7ff;">
+            <th>Brand</th>
+            <th>Vehicule</th>
+            <th>Matricule</th>
+             <th>Edit</th> 
+          </tr>
+        </thead>
+        <tbody class="tabrow">
+    {% for item in vehicule %}
+
+          <tr data-id="1">
+            <td data-field="brand">{{ item.marque }}</td>
+            <td data-field="vehi">{{ item.marque }}</td>
+            <td data-field="matri">{{ item.matricule }}</td>
+             <td>
+              <a class="button button-small edit" title="Edit">
+                <i class="fa fa-pencil"></i>
+              </a>
+              
+              <a class="button button-small edit" title="Delete">
+                <i class="fa fa-trash"></i>
+              </a>
+            </td> 
+          </tr>
+         {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+                </div>
+              </div>
+              <!--/ Contextual Classes -->
+                </div>
+                </div>
+              
+            
+          </div>
+          <!-- Content wrapper -->
+        </div>
+        <!-- / Layout page -->
+      </div>
+
+      <!-- Overlay -->
+      <div class="layout-overlay layout-menu-toggle"></div>
+    </div>
+    <!-- / Layout wrapper -->
+
+  
+
+                     
+    <!-- Core JS -->
+    <!-- build:js assets/vendor/js/core.js -->
+    
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css'></script>
+    <script>
+      
+       (function($, window, document, undefined) {
+  var pluginName = "editable",
+    defaults = {
+      keyboard: true,
+      dblclick: true,
+      button: true,
+      buttonSelector: ".edit",
+      maintainWidth: true,
+      dropdowns: {},
+      edit: function() {},
+      save: function() {},
+      cancel: function() {}
+    };
+
+  function editable(element, options) {
+    this.element = element;
+    this.options = $.extend({}, defaults, options);
+
+    this._defaults = defaults;
+    this._name = pluginName;
+
+    this.init();
+  }
+
+  editable.prototype = {
+    init: function() {
+      this.editing = false;
+
+      if (this.options.dblclick) {
+        $(this.element)
+          .css('cursor', 'pointer')
+          .bind('dblclick', this.toggle.bind(this));
+      }
+
+      if (this.options.button) {
+        $(this.options.buttonSelector, this.element)
+          .bind('click', this.toggle.bind(this));
+      }
+    },
+
+    toggle: function(e) {
+      e.preventDefault();
+
+      this.editing = !this.editing;
+
+      if (this.editing) {
+        this.edit();
+      } else {
+        this.save();
+      }
+    },
+
+    edit: function() {
+      var instance = this,
+        values = {};
+
+      $('td[data-field]', this.element).each(function() {
+        var input,
+          field = $(this).data('field'),
+          value = $(this).text(),
+          width = $(this).width();
+
+        values[field] = value;
+
+        $(this).empty();
+
+        if (instance.options.maintainWidth) {
+          $(this).width(width);
+        }
+
+        if (field in instance.options.dropdowns) {
+          input = $('<select></select>');
+
+          for (var i = 0; i < instance.options.dropdowns[field].length; i++) {
+            $('<option></option>')
+              .text(instance.options.dropdowns[field][i])
+              .appendTo(input);
+          };
+
+          input.val(value)
+            .data('old-value', value)
+            .dblclick(instance._captureEvent);
+        } else {
+          input = $('<input type="text" />')
+            .val(value)
+            .data('old-value', value)
+            .dblclick(instance._captureEvent);
+        }
+
+        input.appendTo(this);
+
+        if (instance.options.keyboard) {
+          input.keydown(instance._captureKey.bind(instance));
+        }
+      });
+
+      this.options.edit.bind(this.element)(values);
+    },
+
+    save: function() {
+      var instance = this,
+        values = {};
+
+      $('td[data-field]', this.element).each(function() {
+        var value = $(':input', this).val();
+
+        values[$(this).data('field')] = value;
+
+        $(this).empty()
+          .text(value);
+
+
+      });
+    
+
+      this.options.save.bind(this.element)(values);
+         $.ajax({
+            type: "post",
+            url:'/add_vehi',
+             data: {
+            'brand':values.brand, 
+            'vehicule':values.vehi,
+            'matricule':values.matri, 
+            
+         },
+            success:function(data) {
+                //  location.href = '/vehicule';
+
+               
+             }
+        })
+
+    },
+
+    cancel: function() {
+      var instance = this,
+        values = {};
+
+      $('td[data-field]', this.element).each(function() {
+        var value = $(':input', this).data('old-value');
+
+        values[$(this).data('field')] = value;
+
+        $(this).empty()
+          .text(value);
+      });
+
+      this.options.cancel.bind(this.element)(values);
+    },
+
+    _captureEvent: function(e) {
+      e.stopPropagation();
+    },
+
+    _captureKey: function(e) {
+      if (e.which === 13) {
+        this.editing = false;
+        this.save();
+      } else if (e.which === 27) {
+        this.editing = false;
+        this.cancel();
+      }
+    }
+  };
+
+  $.fn[pluginName] = function(options) {
+    return this.each(function() {
+      if (!$.data(this, "plugin_" + pluginName)) {
+        $.data(this, "plugin_" + pluginName,
+          new editable(this, options));
+      }
+    });
+  };
+
+})(jQuery, window, document);
+
+editTable();
+
+//custome editable starts
+function editTable(){
+  
+  $(function() {
+  var pickers = {};
+
+  $('table tr').editable({
+    dropdowns: {
+      sex: ['Male', 'Female']
+    },
+    edit: function(values) {
+      $(".edit i", this)
+        .removeClass('fa-pencil')
+        .addClass('fa-save')
+        .attr('title', 'Save');
+
+      pickers[this] = new Pikaday({
+        field: $("td[data-field=birthday] input", this)[0],
+        format: 'MMM D, YYYY'
+      });
+    },
+    save: function(values) {
+      $(".edit i", this)
+        .removeClass('fa-save')
+        .addClass('fa-pencil')
+        .attr('title', 'Edit');
+
+      if (this in pickers) {
+        pickers[this].destroy();
+        delete pickers[this];
+      }
+    },
+    cancel: function(values) {
+      $(".edit i", this)
+        .removeClass('fa-save')
+        .addClass('fa-pencil')
+        .attr('title', 'Edit');
+
+      if (this in pickers) {
+        pickers[this].destroy();
+        delete pickers[this];
+      }
+    }
+  });
+});
+  
+}
+
+$(".add-row").click(function(){
+  $("#editableTable").find("tbody tr:first").before("<tr><td data-field='brand'></td><td data-field='vehi'></td><td data-field='matri'></td><td><a class='button button-small edit' title='Edit'><i class='fa fa-pencil'></i></a> <a class='button button-small' title='Delete'><i class='fa fa-trash'></i></a></td></tr>");   
+  editTable();  
+  setTimeout(function(){   
+    $("#editableTable").find("tbody tr:first td:last a[title='Edit']").click(); 
+  }, 200); 
+  
+  setTimeout(function(){ 
+    $("#editableTable").find("tbody tr:first td:first input[type='text']").focus();
+      }, 300); 
+  
+   $("#editableTable").find("a[title='Delete']").unbind('click').click(function(e){
+        $(this).closest("tr").remove();
+    });
+   
+});
+
+function myFunction() {
+    
+}
+
+ $("#editableTable").find("a[title='Delete']").click(function(e){  
+  var x;
+          var matricule = $(this).closest("tr").find("td[data-field='matri']").text();
+    if (confirm("Voulez-vous vraiment supprimer la ligne entière?") == true) {
+         tr = $(this).closest("tr");
+                  $.ajax({
+            type: "post",
+            url:'/delete_veh',
+             data: {
+            
+            'matricule':matricule, 
+            
+         },
+            success:function(data) {
+            tr.remove();
+               
+             }
+        })
+    } else {
+        
+    }     
+});  
+
+{# jQuery("a[title='Edit']").click(function(){
+    var tableData = $(this).closest('tr').children("td").map(function () {
+              return $(this).text();
+            }).get();
+            
+}); #}
+
+
+    </script>
+
+    
+    <!-- endbuild -->
+
+    <!-- Vendors JS -->
+    <script src="../assets/vendor/libs/apex-charts/apexcharts.js"></script>
+
+    <!-- Main JS -->
+
+          
+
+    <!-- Page JS -->
+    <script src="../assets/js/dashboards-analytics.js"></script>
+
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+  </body>
+</html>
+
+{% endblock %}

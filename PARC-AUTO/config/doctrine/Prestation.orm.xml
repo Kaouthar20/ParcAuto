@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="App\Entity\Prestation" table="prestation">
+    <indexes>
+      <index name="IDX_51C88FAD9F2C3FAB" columns="zone_id"/>
+      <index name="IDX_51C88FADEEA87261" columns="type_prestation_id"/>
+      <index name="IDX_51C88FAD153E280" columns="type_vehicule_id"/>
+    </indexes>
+    <id name="id" type="integer" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="typePrestationId" type="integer" column="type_prestation_id" nullable="true">
+      <options>
+        <option name="unsigned"/>
+        <option name="default">NULL</option>
+      </options>
+    </field>
+    <field name="name" type="string" column="name" length="255" nullable="false">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="observation" type="string" column="observation" length="255" nullable="false">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="conducteur" type="boolean" column="conducteur" nullable="false"/>
+    <field name="tarifPrestation" type="float" column="tarif_prestation" precision="10" scale="0" nullable="true">
+      <options>
+        <option name="default">NULL</option>
+      </options>
+    </field>
+    <field name="typeVehiculeId" type="integer" column="type_vehicule_id" nullable="true">
+      <options>
+        <option name="unsigned"/>
+        <option name="default">NULL</option>
+      </options>
+    </field>
+    <field name="typeMiseAdispoC" type="string" column="type_mise_adispo_c" length="255" nullable="true">
+      <options>
+        <option name="fixed"/>
+        <option name="default">NULL</option>
+      </options>
+    </field>
+    <field name="zoneId" type="integer" column="zone_id" nullable="true">
+      <options>
+        <option name="unsigned"/>
+        <option name="default">NULL</option>
+      </options>
+    </field>
+    <many-to-many field="mission" target-entity="Mission" mapped-by="prestation" fetch="LAZY"/>
+  </entity>
+</doctrine-mapping>

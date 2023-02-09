@@ -1,0 +1,7 @@
+  <select id="country" class="select2 DDLprestation form-select">
+                                <option value="">Prestation</option>
+                              {% for item in prestation %}
+                                    <option value="{{item.id}}" at="{{item.id}}">{{item.name}}</option>
+                              {% endfor %}
+                             
+                            </select> 

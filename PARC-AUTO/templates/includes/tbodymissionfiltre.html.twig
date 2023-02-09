@@ -1,0 +1,61 @@
+<table id="table_id" class="display compact tbodymissionfiltre">
+    <thead>
+        <tr style="background:#e7e7ff;text-align:center;">
+            <th>#</th>
+            <th>Site </th>
+            <th>Demandeur</th>
+            <th>Date Mission</th>
+            <th>Date debut</th>
+            <th>Date fin</th>
+            <th>Heure</th>
+            <th>Npt</th>
+            <th>status</th>
+            <th>Action</th>
+            <th hidden>Action</th>
+        </tr>
+    </thead>
+    <tbody id="data_table" class="tabrow tbodymissionfiltre">
+    {% for item in mission %}
+   
+        <tr style="text-align:center">
+            <td style="width:2%">{{item.idm}} </td>
+            <td>{{item.abreviation}}</td>
+            <td>{{item.benificiare}}</td>
+            <td>{{item.date_mission | date('Y-m-d')}} </td>
+            <td> {{item.date_depart | date('Y-m-d')}}  </td>
+            <td> {{item.date_retour | date('Y-m-d')}}</td>
+            <td> {{item.heure_depart}}  </td>
+            <td> {{item.nb_personnes	}}  </td>
+            <td >{% if item.statut_id == 1  %} 
+            <span class="badge bg-label-info">Creer</span>
+             {% elseif item.statut_id == 2 %}<span class="badge bg-label-primary">Initier</span>
+             {% else %}
+             <span class="badge bg-label-success me-1">Valider</span>
+             {% endif %}</td>
+            <td hidden>{% if item.statut_id == 1  %}1{% elseif item.statut_id == 2 %}2{% else %}3{% endif %}</td>
+            {# <td>
+           {{item.statut}}
+          </td> #}
+            <td style="width:2%">
+                        <div class="btn-group">
+                          <button type="button" style="border: 0;background-color: transparent;" class=" btn-icon rounded-pill dropdown-toggle hide-arrow" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bx bx-dots-vertical-rounded"></i>
+                          </button>
+                          <ul class="dropdown-menu dropdown-menu-end" style="">
+                              <li ><a  class="dropdown-item editer" at="{{item.idm}}" ><i class="menu-icon tf-icons bx bx-edit"></i>Editer</a></li>
+                              {% if item.statut_id == 1  %}
+                              <li><a  class="dropdown-item initier" at="{{item.idm}}" ><i class="menu-icon tf-icons bx bx-folder-plus"></i>Initier</a></li>
+                              {% else %}
+                                <li><a  class="dropdown-item bg-dark" ><i class="menu-icon tf-icons bx bx-folder-plus"></i>initiee</a></li>
+                              {% endif %}
+                              <li>
+                                <hr class="dropdown-divider">
+                                  </li>
+                              <li><a  class="dropdown-item valider" at="{{item.idm}}"><i class="menu-icon tf-icons bx bx-check-square"></i>Valider</a></li>
+                          </ul>
+                        </div>
+                             </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+</table>

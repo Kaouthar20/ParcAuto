@@ -1,0 +1,71 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Product index
+{% endblock %}
+
+{% block body %}
+
+
+	<div class="card m-3 mt-4 shadow">
+		<div class="card-header font-weight-bold">
+			Products
+
+		</div>
+		<div class="card-body">
+			<div
+				class="home-table">
+				<!-- Table -->
+				<table id="product" class='display dataTable table table-bordered'>
+					<thead>
+						<tr>
+							<th>Id</th>
+							<th>Nom</th>
+							<th>Quantite</th>
+
+						</tr>
+					</thead>
+
+
+				</table>
+			</div>
+		</div>
+	</div>
+
+
+{% endblock %}
+
+{% block javascripts %}
+	{{ parent() }}
+
+	<script>
+
+		$(document).ready(function () {
+
+
+$('#product').DataTable({
+
+'serverSide': true,
+'serverMethod': 'post',
+'ajax': {
+'url': '/getData'
+
+},
+'columns': [
+{
+data: 'id'
+}, {
+data: 'designation'
+}, {
+data: 'quantite'
+},
+
+]
+
+
+});
+
+});
+	</script>
+
+
+{% endblock %}

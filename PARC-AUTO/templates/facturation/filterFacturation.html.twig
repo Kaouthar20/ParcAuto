@@ -1,0 +1,27 @@
+{% for index  , facture in factures %}
+	{# {% for site in sites %} #}
+	<tr>
+
+		<td>{{ index +1 }}</td>
+
+
+		{# <td>{{site["nom_dossier"]}}</td> #}
+		<td>{{facture["abreviation"]}}</td>
+
+
+		<td>{{facture["date_mission"] | date('Y-m-d') }}</td>
+
+		<td>{{ facture["id"] }}</td>
+		<td>{{facture["code_mission"]}}</td>
+		<td>{{facture["ville_mission"]}}</td>
+		<td>{{facture["mt_total"]}}</td>
+
+
+		<td>
+			<a target='_blank' href="{{path('facturerPdf1' , {id: facture["id"]})}}" class="btn btn-sm btn-primary">Imprimer</a>
+
+		</td>
+
+	</tr>
+	{# {% endfor %} #}
+{% endfor %}

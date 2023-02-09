@@ -1,0 +1,72 @@
+{% extends 'template.html.twig' %}
+
+{% block title %}liste  de stock
+{% endblock %}
+{% block stylesheets %}
+	{{parent()}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/select/1.3.4/css/select.bootstrap5.min.css">
+    
+    {# <link rel="stylesheet" href="{{asset('assets/css/jquerydatatable.css')}}">
+	<link rel="stylesheet" href="{{asset('assets/css/buttonsdatatable.css')}}"> #}
+{% endblock %}
+
+{% block body %}
+{% include 'stock/modals/add_form.html.twig' %}
+<a class="btn btn-success btn-sm  mt-3 mb-5 " data-bs-toggle="modal" data-bs-target="#form_add">New <i class="fa-solid fa-circle-plus"></i></a>
+<table class="table table-hover"  id="stock" class="table table-striped" style="width:90%">
+<thead>
+<tr>
+<th>id</th>
+<th>nom</th>
+<th>code</th>
+<th>fabriqué</th>
+<th>acheté</th>
+<th>prix d'achat</th>
+<th>quantite</th>
+<th>Experé</th>
+</tr>
+</thead>
+<tbody>
+{% for stock in stocks %}
+<tr>
+<td>{{ stock.id}}</td>
+<td>{{ stock.nom}}</td>
+<td>{{ stock.code}}</td>
+<td>{{ stock.fabrique|date("d/m/y") }}</td>
+<td>{{ stock.achete |date("d/m/y")}}</td>
+<td>{{ stock.prixAchat}}</td>
+<td>{{ stock.quantite}}</td>
+<td>{{ stock.dateExp|date("d/m/y")}}</td>
+</tr>
+{% endfor %}
+
+</tbody>
+</table>
+ <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script>
+$(document).ready(function() {
+    $('#stock').DataTable( {
+        select: true
+    } );
+} );
+</script>
+{% endblock %}
+{% block javascripts %}
+{{parent()}}
+
+<script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap5.min.js"></script>
+<script src="https://cdn.datatables.net/select/1.3.4/js/dataTables.select.min.js"></script>
+	
+	{# <script src="{{asset('/assets/js/jquery1115datatable.js')}}"></script>
+	<script src="{{asset('/assets/js/buttonsdatatable.js')}}"></script>
+	<script src="{{asset('/assets/js/ajaxjszip.js')}}"></script>
+	<script src="{{asset('/assets/js/buttons222html5.js')}}"></script>
+    	<script src="{{asset('assets/js/jquerydatatable.js')}}"></script> #}
+       
+    
+{% endblock %}
+
+

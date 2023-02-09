@@ -1,0 +1,178 @@
+{% extends 'template.html.twig' %}
+
+{% block title %}
+	Liste des articles
+{% endblock %}
+{% block stylesheets %}
+	{{parent()}}
+	<link rel="stylesheet" href="{{asset('assets/css/jquerydatatable.css')}}">
+	<link rel="stylesheet" href="{{asset('assets/css/buttonsdatatable.css')}}">
+{% endblock %}
+{# {% block titlePage %}
+	<h3 class="text-center fst-italic">La liste des articles</h3>
+{% endblock %} #}
+
+
+
+
+	{# <button type="button" class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#form_add">
+		New
+		<i class="fa-solid fa-circle-plus"></i>
+	</button> #}
+
+{% block body %}
+	{% include 'article/modals/add_form.html.twig' %}
+<a class="btn btn-success btn-sm  mt-3 mb-5  " data-bs-toggle="modal" data-bs-target="#form_add">New <i class="fa-solid fa-circle-plus"></i></a
+	<div class="container">
+		<table id="example" class="table mt-5 table-hover ">
+			<thead>
+				<tr>
+					<th>Id</th>
+					<th>Désignation</th>
+					<th>Prix d'achat</th>
+					<th>Quantité</th>
+					<th>Code</th>
+					<th>Date d'experation</th>
+					<th>Statut</th>
+					<th>action</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for article in articles %}
+					<tr>
+						<th scope="row">{{article.id}}</th>
+
+						<td>{{article.nom}}</td>
+						<td>{{article.prixAchat}}</td>
+						<td>{{article.quantite}}</td>
+						<td>{{article.code}}</td>
+						<td>{{article.dateExp |date("m/d/Y")}}</td>
+						<td>
+						Active
+						</td>
+
+						<td>
+							<div class="dropdown">
+								<button class="btn btn-light btn-sm dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+									Action
+								</button>
+								<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+									<li>
+										
+										<a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#modal{{ article.id }}">consulter</a>
+										{# <a class="dropdown-item" href="{{path('detail_article',{id: article.id})}}">consulter</a> #}
+									</li>
+									{# <li>
+										<a class="dropdown-item" href="{{path('update_article',{id: article.id})}}">modifier</a>
+									</li> #}
+									<li>
+										
+										<a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#modalModifier">modifier</a>
+										
+									</li>
+									<li>
+										<a class="dropdown-item" href="{{path('delete_article',{id: article.id})}}">suprimer</a>
+									</li>
+								</ul>
+							</div>
+						</td>
+
+						<div class="modal fade"  id="modal{{ article.id }}"  data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Détail d'une article</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+	 <div class="card text-start|center|end">
+		<div class="card" style="width: 100%;">
+
+			<div class="card-body">
+				 <ul class="list-group list-group-flush">
+				<li class="list-group-item">Désignation: {{article.nom}}</li>
+				<li class="list-group-item">Prix d'achat: {{article.prixAchat}}</li>
+				<li class="list-group-item">Qauntité: {{article.quantite}}</li>
+				<li class="list-group-item">Code: {{article.code}}</li>
+				<li class="list-group-item">Date d'experation: {{article.dateExp | date('d/m/Y')}}</li>
+				<li class="list-group-item">Stock: {{article.stock}}</li>
+				<li class="list-group-item">Famille: {{article.famille}}</li>
+				<li class="list-group-item">Type d'article: {{article.typeArticle}}</li>
+				<li class="list-group-item">Prix de vente: {{article.prixVente}}</li>
+				<li class="list-group-item">TVA: {{article.tva}}</li>
+			</ul>
+
+			</div>
+			  
+			 {# <div class="card-body">
+				<button type="button" class="btn btn-outline-success">
+					<a href="{{path('liste_article')}}">Retour</a>
+				</button>
+
+
+			</div>  #}
+		</div>
+	</div>
+   
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger btn-sm consulterArticle" data-bs-dismiss="modal">Fermer</button>
+      
+      </div>
+    </div>
+  </div>
+</div>
+
+
+					</tr>
+		
+		 {# with {"article": article} #}
+				{% endfor %}
+			</tbody>
+
+		</table>
+
+{% include 'article/modals/update_form.html.twig'%} 
+		<script src="{{asset('assets/js/jquerydatatable.js')}}"></script>
+		<script>
+			$(document).ready(function () {
+$('#example').DataTable({
+dom: 'Bfrtip',
+
+
+buttons: [
+{
+extend: 'excel',
+exportOptions: {
+columns: [
+0,
+1,
+2,
+3,
+4,
+5,
+6
+]
+}
+},
+]
+});
+});
+		</script>
+	</div>
+{% endblock %}
+{% block javascripts %}
+	{{parent()}}
+	<script src="{{asset('/assets/js/jquery1115datatable.js')}}"></script>
+	<script src="{{asset('/assets/js/buttonsdatatable.js')}}"></script>
+	<script src="{{asset('/assets/js/ajaxjszip.js')}}"></script>
+	<script src="{{asset('/assets/js/buttons222html5.js')}}"></script>
+{% endblock %}
+{# <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+			<script src="https://cdn.datatables.net/buttons/2.2.2/js/dataTables.buttons.min.js"></script>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+			<script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.html5.min.js"></script>
+			<script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.print.min.js"></script> #}
+{# <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.2.2/css/buttons.dataTables.min.css"> #}
+{# <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css"> #}

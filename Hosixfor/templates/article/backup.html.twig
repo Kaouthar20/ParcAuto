@@ -1,0 +1,77 @@
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+	Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLabel">Ajouter un article</h5>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+				<label for="nom" class="form-label">Nom :</label>
+				<input type="text" class="form-control" name="nom" id="nom" placeholder="entrez le nom ">
+				<label for="prix" class="form-label">Prix :</label>
+				<input type="number" step="0.01" min="0" max="10" class="form-control" name="prix" id="prix" placeholder="entrez le prix ">
+				<label for="quantite" class="form-label">Quantité :</label>
+				<input type="number" class="form-control" name="quantite" id="quantite" placeholder="entrez la quantité">
+				<label for="code" class="form-label">Code :</label>
+				<input type="number" class="form-control" name="code" id="code" placeholder="entrez le code ">
+				<label for="date" class="form-label">Date d'experation :</label>
+				<input
+				type="date" class="form-control" name="date" id="date" placeholder="entrez la date d'experation">
+			{# <label for="stock">Choisir le stock :</label>
+																																							
+																																																	<select name="stock" id="stock" class="form-control">
+																																																		{% for s in stock %}
+																																																			<option value="{{s.id}}">{{s.nom}}</option>
+																																																		{% endfor %}
+																																																	</select>
+																																																	<label for="famille">Choisir la famille :</label>
+																																							
+																																																	<select name="famille" id="famille" class="form-control">
+																																																		{% for f in famille %}
+																																																			<option value="{{f.id}}">{{f.nom}}</option>
+																																																		{% endfor %}
+																																																	</select> #}
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-sm btn-primary btnAjouterArticle" data-bs-dismiss="modal">Enregistrer</button>
+
+			</div>
+		</div>
+	</div>
+</div>
+<script>
+
+
+	$(".btnAjouterArticle").on("click", function () {
+
+var nom = $('#nom').val();
+var prix = $('#prix').val();
+var quantite = $('#quantite').val();
+var code = $('#code').val();
+var idStock = $("#stock").val();
+var idFamille = $('#famille');
+// ajax
+
+$.ajax({
+type: 'POST',
+url: "{{ path('create_article') }}",
+data: {
+nom: nom,
+prix: prix,
+quantite: quantite,
+code: code,
+idStock: idStock,
+idFamille: idFamille
+},
+success: function (result) {
+alert("L'article est ajoutée !")
+}
+});
+})
+</script>

@@ -1,0 +1,64 @@
+{% extends "template.html.twig" %}
+
+{% block body %}
+   <form class="row g-3 fontCommande">
+     	<div class="col-md-6 mt-3">
+			<label for="inputZip" class="form-label">Numero de commande :</label>
+	</div>
+   <div class="col-md-6">
+			<label for="inputZip" class="form-label">Date:</label>
+			<input type="date" class="form-control form-control-sm" id="inputZip">
+	</div>
+	{# <div class="col-md-2">
+			<label for="inputState" class="form-label">Client</label>
+			<select id="inputState" class="form-select form-select-sm">
+				<option selected>Choose...</option>
+				<option>...</option>
+			</select>
+		</div> #}
+  	{# <div class="form-floating col-md-6">
+  <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
+  <label for="floatingTextarea">Observation</label>
+</div> #}
+		<div class="col-md-2">
+			<label for="inputState" class="form-label">Article</label>
+			<select id="inputState" class="form-select form-select-sm">
+				<option selected>Choose...</option>
+				<option>...</option>
+			</select>
+		</div>
+		
+	
+    	<div class="col-md-2">
+			<label for="inputPassword4" class="form-label">Prix</label>
+			<input type="float" class="form-control form-control-sm" id="inputPassword4">
+		</div>
+    <div class="col-md-2">
+			<label for="inputEmail4" class="form-label">Quantite</label>
+			<input type="number" class="form-control form-control-sm" id="inputEmail4">
+		</div>
+    	<div class="col-md-2">
+			<label for="inputPassword4" class="form-label">Tva</label>
+			<input type="float" class="form-control form-control-sm" id="inputPassword4">
+		</div>
+    	<div class="col-md-2">
+			<label for="inputPassword4" class="form-label">montant ht</label>
+			<input type="float" class="form-control form-control-sm" id="inputPassword4">
+		</div>
+
+	
+		
+		
+		<div class="col-2">
+			<button type="submit" class="btn btn-sm btn-success mt-4">Ajouter</button>
+		</div>
+	</form> 
+
+<div class="card mt-3">
+  <div class="card-body">
+  <h5 class="card-title text-secondary">Etat de commande</h5>
+  </div>
+  </div>
+{% endblock %}
+	
+

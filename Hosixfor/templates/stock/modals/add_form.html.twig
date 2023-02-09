@@ -1,0 +1,107 @@
+<!-- Modal -->
+<!-- Button trigger modal -->
+
+<!-- Modal -->
+	<body>
+
+
+		<div id="myModal"> <div class="modal fade" id="form_add" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header ">
+						<h5 class="modal-title" id="form_add">Nouveau stock</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+						<form class="row g-3">
+							<div class="col-md-6">
+
+								<label for="nom" class="form-label">Nom:</label>
+								<input type="text" class="form-control form-control-sm" name="nom" id="nom" >
+							</div>	<div class="col-md-6">
+								<label for="code" class="form-label">Code :</label>
+								<input type="number" class="form-control form-control-sm" name="code" id="code" >
+							</div>
+                            	<div class="col-md-6">
+								<label for="fabrique" class="form-label">Fabriqué:</label>
+								<input type="date" class="form-control form-control-sm" name="fabrique" id="fabrique" >
+							</div>
+                            <div class="col-md-6">
+								<label for="achete" class="form-label">Acheté:</label>
+								<input type="date" class="form-control form-control-sm" name="achete" id="achete" >
+							</div>
+							<div class="col-md-6">
+								<label for="prixAchat" class="form-label">Prix d'achat:</label>
+								<input type="float" min="0" class="form-control form-control-sm" name="prixAchat" id="prixAchat">
+							</div>
+							<div class="col-md-6">
+								<label for="quantite" class="form-label">Quantité :</label>
+								<input type="number" class="form-control form-control-sm" name="quantite" id="quantite">
+							</div>
+						
+							<div class="col-md-6">
+								<label for="dateExp" class="form-label">Date d'experation :</label>
+								<input type="date" class="form-control form-control-sm" name="dateExp" id="dateExp" >
+							</div>
+							
+						
+						</form>
+					</div>
+					<div class="modal-footer">
+<button type="button" class="btn btn-danger btn-sm " data-bs-dismiss="modal">Annuler</button>
+						<button type="button" id="ajouterStock" class="btn btn-sm btn-success btnAjouterStock">Enregistrer</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+	<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+
+	<script>
+		$(document).ready(function () {
+
+$("body").on("click", "#ajouterStock", function () {
+
+
+var nom = $("#nom").val();
+var code = $('#code').val();
+var dateF = $('#fabrique').val();
+var dateA = $('#achete').val();
+var prixAchat = $('#prixAchat').val();
+var quantite = $('#quantite').val();
+var dateExp = $('#dateExp').val();
+
+
+
+$.ajax({
+
+url: "{{ path('new_stock') }}",
+method: 'POST',
+data: {
+nom: nom,
+code: code,
+fabrique: dateF,
+achete: dateA,
+prixAchat: prixAchat,
+quantite: quantite,
+
+dateExp: dateExp
+
+},
+success: function (result) {
+
+$(".modal").hide();
+$(".modal-backdrop").hide();
+setTimeout(function () {
+alert("Ajoute d'article avec success!")
+}, 200);
+
+}
+});
+})
+
+});
+	</script>
+</body>

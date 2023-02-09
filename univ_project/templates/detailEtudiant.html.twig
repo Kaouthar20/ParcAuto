@@ -1,0 +1,29 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Notes
+{% endblock %}
+{% block contentPage %}
+
+	{% block page_contents %}
+
+		<div class="container d-flex flex-row mx-4" style="justify-content: space-between">
+			<div class="card bg-light" style="width: 18rem ">
+				<img src="/images/etudiant.png" class="card-img-top " alt="...">
+				<div class="card-body bg-light ">
+
+
+					<ul class="list-group  list-group-flush ">
+						<li class="list-group-item bg-light text-success">{{etudiant.nom}}</li>
+						<li class="list-group-item bg-light text-success ">{{etudiant.id}}</li>
+						<li class="list-group-item bg-light text-success">{{etudiant.cne}}</li>
+						<li class="list-group-item bg-light text-success">{{etudiant.telephone}}</li>
+						<li class="list-group-item bg-light text-success">{{etudiant.email}}</li>
+						<li class="list-group-item bg-light text-success">{{etudiant.groupe}}</li>
+					</ul>
+				</div>
+			</div>
+
+		</div>
+
+	{% endblock %}
+{% endblock %}

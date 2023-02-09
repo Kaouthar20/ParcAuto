@@ -1,0 +1,52 @@
+{% extends 'base_tow.html.twig' %}
+
+{% block title %}Log in!
+{% endblock %}
+{# {% block stylesheets %}
+	<link rel="stylesheet" href="{{asset('css/login.css')}}">
+{% endblock %} #}
+
+{% block body %}
+
+	<div class="container">
+		<input type="checkbox" id="flip">
+		<div class="cover">
+			<div class="front">
+				<img src="images/login-1.jpg" alt="">
+				<div class="text">
+					<span class="text-1">HOSIX.for
+					</span>
+					<br>
+					<span class="text-2">HÔPITAL UNIVERSITAIRE INTERNATIONAL CHEIKH ZAÏD
+					</span>
+				</div>
+			</div>
+
+		</div>
+		<div class="forms">
+			<div class="form-content">
+				<div class="login-form">
+					<div class="title">Login</div>
+					<form method="post">
+						<div class="input-boxes">
+							<div class="input-box">
+								<i class="fas fa-home"></i>
+								<input type="text" value="{{ last_username }}" name="username" placeholder="Enter your username" required autocomplete="nope">
+							</div>
+							<div class="input-box">
+								<i class="fas fa-lock"></i>
+								<input type="password" name="password" placeholder="Enter your password" autocomplete="nope" required>
+							</div>
+							<input type="hidden" name="_csrf_token" value="{{csrf_token('authenticate')}}">
+							<div class="button input-box">
+								<input type="submit" value="Sig up">
+							</div>
+
+						</div>
+					</form>
+				</div>
+
+			</div>
+		</div>
+	</div>
+{% endblock %}

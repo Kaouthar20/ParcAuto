@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>
+			{% block title %}Welcome!
+			{% endblock %}
+		</title>
+		<link
+		rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+		{# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
+		{% block stylesheets %}
+			{{ encore_entry_link_tags('app') }}
+			<style>
+				.btndeleteprestation {
+					width: 40px;
+					height: 40px;
+					background: red;
+					border: 0;
+				}
+				.modal-dialog-scrollable {
+					width: 40% !important;
+					margin: 1rem auto !important;
+				}
+			</style>
+		{% endblock %}
+
+		{% block javascripts %}
+
+			<script src="{{ asset('js/script5.js') }}"></script>
+			<script src="{{ asset('js/jquery.min.js') }}"></script>
+			<script src="{{ asset('js/jquery.dataTables.min.js') }}"></script>
+			<script src="{{ asset('js/jquery-3.5.1.js') }}"></script>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+		{% endblock %}
+	</head>
+	<body>
+		{% block body %}
+			<aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
+				<div class="app-brand demo">
+					<a href="index.html" class="app-brand-link">
+						<span class="app-brand-logo demo">
+							<img src="../assets/img/icons/rental-car.png"/>
+						</span>
+						<span class="app-brand-text demo menu-text fw-bolder ms-2">Parc Auto
+						</span>
+					</a>
+
+					<a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">
+						<i class="bx bx-chevron-left bx-sm align-middle"></i>
+					</a>
+				</div>
+
+				<div class="menu-inner-shadow"></div>
+
+				<ul
+					class="menu-inner py-1">
+					<!-- Dashboard -->
+					<li class="menu-item">
+						<a href="{{ path('accordion') }}" class="menu-link">
+							<i class="menu-icon tf-icons bx bx-home-circle"></i>
+							<div data-i18n="Analytics">Dashboard</div>
+						</a>
+					</li>
+
+
+					<li {% if app.request.get('_route') == 'mission' %} class="menu-item active open" {% else %} class="menu-item" {% endif %}>
+
+
+						<a href="{{ path('mission') }}" class="menu-link menu-toggle">
+							<i class="menu-icon tf-icons bx bx-detail"></i>
+							<div data-i18n="Account Settings">Missions</div>
+						</a>
+						<ul class="menu-sub">
+							<li {% if app.request.get('_route') == 'mission' %} class="menu-item active" {% else %} class="menu-item" {% endif %}>
+								<a href="{{ path('mission') }}" class="menu-link">
+									<div data-i18n="Account">Liste missions
+									</div>
+								</a>
+							</li>
+
+
+						</ul>
+					</li>
+
+					<!-- Components -->
+					{# <li class="menu-header small text-uppercase"><span class="menu-header-text">Facturer</span></li> #}
+
+
+					<!-- Extended components -->
+						<li {% if app.request.get('_route') == 'app_facturer' %} class="menu-item active open" {% else %} class="menu-item" {% endif %}> <a href="{{ path('app_facturer') }}" class="menu-link menu-toggle">
+							<i class="menu-icon tf-icons bx bx-folder"></i>
+							<div data-i18n="Extended UI">Facturation</div>
+						</a>
+						<ul class="menu-sub">
+							<li {% if app.request.get('_route') == 'app_facturer' %} class="menu-item active" {% else %} class="menu-item" {% endif %}>
+								<a href="{{ path('app_facturer') }}" class="menu-link">
+									<div data-i18n="Perfect Scrollbar">Liste des missions à facturer</div>
+								</a>
+							</li>
+
+						</ul>
+						<ul class="menu-sub">
+							<li class="menu-item active" class="menu-item">
+								<a href="{{path('app_facturation')}}" class="menu-link">
+
+									<div data-i18n="Perfect Scrollbar">Liste des factures</div>
+								</a>
+							</li>
+
+						</ul>
+
+					</li>
+
+
+					<!-- Forms & Tables -->
+					{# <li class="menu-header small text-uppercase"><span class="menu-header-text">Suivis des Missions</span></li> #}
+					<!-- Forms -->
+						<li {% if app.request.get('_route') == 'vehicule' or app.request.get('_route') == 'conducteur' %} class="menu-item active open" {% else %} class="menu-item" {% endif %} class="menu-item"> <a class="menu-link menu-toggle">
+							<i class="menu-icon tf-icons bx bx-cog"></i>
+							<div data-i18n="Form Elements">Parametrage</div>
+						</a>
+						<ul class="menu-sub">
+							<li {% if app.request.get('_route') == 'vehicule' %} class="menu-item active" {% else %} class="menu-item" {% endif %}>
+								<a href="{{ path('vehicule') }}" class="menu-link">
+									<i class="menu-icon tf-icons bx bx-car"></i>
+									<div data-i18n="Basic Inputs">Vehicule</div>
+								</a>
+							</li>
+							<li {% if app.request.get('_route') == 'conducteur' %} class="menu-item active" {% else %} class="menu-item" {% endif %}>
+								<a href="{{ path('conducteur') }}" class="menu-link">
+									<i class="menu-icon tf-icons bx bx-user-plus"></i>
+									<div data-i18n="Basic Inputs">Conducteur</div>
+								</a>
+							</li>
+							{# <li class="menu-item">
+																																																																																																																							                    <a href="{{ path('mission') }}" class="menu-link">
+																																																																																																																							                      <div data-i18n="Basic Inputs">Basic Inputs</div>
+																																																																																																																							                    </a>
+																																																																																																																							                  </li> #}
+
+						</ul>
+					</li>
+					<li style="position: absolute;bottom: 0;">
+						<a class="dropdown-item" href="{{ path('app_logout') }}">
+							<i class="bx bx-power-off me-2"></i>
+							<span class="align-middle">Log Out</span>
+						</a>
+					</li>
+					<!-- Tables -->
+
+				<!-- Misc -->
+					{# <li class="menu-header small text-uppercase"><span class="menu-header-text">Reporting</span></li> #}
+					{# <li class="menu-item">
+																																																																																					              <a
+																																																																																					                href=""
+																																																																																					                class="menu-link"
+																																																																																					              >
+																																																																																					                <i class="menu-icon tf-icons bx bx-support"></i>
+																																																																																					                <div data-i18n="Support">Reporting</div>
+																																																																																					              </a>
+																																																																																					            </li> #}
+
+				</ul>
+			</aside>
+		{% endblock %}
+
+	</body>
+</html>

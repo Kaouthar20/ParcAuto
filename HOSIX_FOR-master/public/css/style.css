@@ -1,0 +1,170 @@
+form .donne-form .form-row .form-group {
+  font-size: 10px;
+}
+/*------------ details css ------------*/
+.contente {
+  padding-top: 20px;
+}
+.mt-2 {
+  font-size: 10px;
+}
+.trajectory {
+  align-items: center;
+
+  top: -4px;
+}
+
+.trajectory i {
+  top: 4.5px;
+
+  font-size: 1.2rem;
+
+  position: relative;
+}
+
+.nav-tabs .nav-item.show .nav-link,
+.nav-tabs .nav-link.active,
+.nav-tabs .nav-link.active2 {
+  color: #495057;
+
+  background-color: #fff;
+
+  position: relative;
+
+  top: 1px;
+
+  z-index: 2;
+
+  border-right: 1px solid hsla(0, 0%, 80.8%, 0.73);
+
+  left: -1px;
+
+  border-radius: 0;
+}
+
+.nav-tabs .nav-link {
+  background: hsla(0, 0%, 65.5%, 0.15);
+
+  font-weight: 500;
+
+  font-size: 11px;
+
+  padding: 4px 7px;
+}
+
+.nav-tabs .nav-item.show .nav-link,
+.nav-tabs .nav-link.active {
+  border-top: 2px solid #495057 !important;
+}
+
+.nav-tabs .nav-link i {
+  margin-right: 0.4rem;
+}
+
+.panel-body {
+  padding: 1rem;
+}
+
+.tab-content h3 {
+  margin: 8px 0 8px;
+
+  text-transform: uppercase;
+
+  font-size: 14px;
+}
+
+.hr-line-dashed-co {
+  margin: 5px !important;
+}
+
+.hr-line-dashed {
+  border-top: 1px dashed #e7eaec;
+
+  color: #fff;
+
+  background-color: #fff;
+
+  height: 1px;
+
+  margin: 2px 1px !important;
+}
+
+.ph {
+  height: 8px;
+
+  padding-left: 5px;
+}
+
+.container_detail {
+  margin-right: 2%;
+
+  margin-left: 2%;
+
+  width: 100%;
+}
+
+.table_detail {
+  width: 100%;
+}
+
+.table_detail tr:nth-child(even) {
+  background-color: #ebebeb52;
+}
+
+.table_detail th {
+  font-size: 10.3px;
+}
+
+.table_detail td,
+.table_detail th {
+  padding: 2px;
+
+  border-bottom: 1px dashed #e7eaec;
+}
+
+.col .btn-success {
+  color: #fff;
+  background-color: #495057;
+  border-color: #495057;
+  font-size: 9px;
+}
+.col .btn-success button a {
+  text-decoration: none;
+}
+
+.col-sm-3 .form-control-sm {
+  width: 300px;
+  font-size: 10px;
+}
+.form-group .col-sm-8 textarea {
+  font-size: 10px;
+}
+.form-group .col-sm-8 {
+  font-size: 10px;
+  width: 325px;
+}
+.form-group .col-sm-8 select {
+  font-size: 10px;
+}
+.navbartow .navbar {
+  padding: 0;
+}
+.drop {
+  margin-left: 1150px;
+}
+.drop .btn {
+  background-color: transparent;
+  box-shadow: none;
+  border: none;
+}
+.drop .btn:focus,
+.drop .btn:active,
+.drop .btn:hover {
+  background-color: #e7eaec;
+  box-shadow: none;
+  border: none;
+}
+.drop svg {
+  color: #495057;
+  font-size: 18px;
+}

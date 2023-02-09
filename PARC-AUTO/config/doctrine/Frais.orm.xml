@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="App\Entity\Frais" table="frais">
+    <id name="id" type="integer" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="carburant" type="float" column="carburant" precision="10" scale="0" nullable="true">
+      <options>
+        <option name="default">NULL</option>
+      </options>
+    </field>
+    <field name="jawaz" type="float" column="jawaz" precision="10" scale="0" nullable="true">
+      <options>
+        <option name="default">NULL</option>
+      </options>
+    </field>
+    <field name="fraisGestion" type="float" column="frais_gestion" precision="10" scale="0" nullable="true">
+      <options>
+        <option name="default">NULL</option>
+      </options>
+    </field>
+    <field name="isAtWeekEnd" type="boolean" column="is_at_week_end" nullable="true">
+      <options>
+        <option name="default">NULL</option>
+      </options>
+    </field>
+    <field name="isAtNight" type="boolean" column="is_at_night" nullable="true">
+      <options>
+        <option name="default">NULL</option>
+      </options>
+    </field>
+  </entity>
+</doctrine-mapping>

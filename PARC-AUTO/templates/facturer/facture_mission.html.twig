@@ -1,0 +1,318 @@
+<style>
+@import 'https://fonts.googleapis.com/css?family=Open+Sans:600,700';
+
+* {font-family: 'Open Sans', sans-serif;}
+
+.rwd-table {
+  margin: auto;
+ width: 100%;
+  border-collapse: collapse;
+}
+
+.rwd-table tr:first-child {
+  border-top: none;
+  background: #428bca;
+  color: #fff;
+}
+
+.rwd-table tr {
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  background-color: #f5f9fc;
+}
+
+.rwd-table tr:nth-child(odd):not(:first-child) {
+  background-color: #ebf3f9;
+}
+
+.rwd-table th {
+  display: none;
+}
+
+.rwd-table td {
+  display: block;
+}
+
+.rwd-table td:first-child {
+  margin-top: .5em;
+}
+
+.rwd-table td:last-child {
+  margin-bottom: .5em;
+}
+
+.rwd-table td:before {
+  content: attr(data-th) ": ";
+  font-weight: bold;
+  width: 120px;
+  display: inline-block;
+  color: #000;
+}
+
+.rwd-table th,
+.rwd-table td {
+  text-align: left;
+}
+
+.rwd-table {
+  color: #333;
+  border-radius: .4em;
+  overflow: hidden;
+}
+
+.rwd-table tr {
+  border-color: #bfbfbf;
+}
+
+.rwd-table th,
+.rwd-table td {
+  padding: .5em 1em;
+}
+@media screen and (max-width: 601px) {
+  .rwd-table tr:nth-child(2) {
+    border-top: none;
+  }
+}
+@media screen and (min-width: 600px) {
+  .rwd-table tr:hover:not(:first-child) {
+    background-color: #d8e7f3;
+  }
+  .rwd-table td:before {
+    display: none;
+  }
+  .rwd-table th,
+  .rwd-table td {
+    display: table-cell;
+    padding: .25em .5em;
+  }
+  .rwd-table th:first-child,
+  .rwd-table td:first-child {
+    padding-left: 0;
+  }
+  .rwd-table th:last-child,
+  .rwd-table td:last-child {
+    padding-right: 0;
+  }
+  .rwd-table th,
+  .rwd-table td {
+    padding: 1em !important;
+  }
+}
+
+
+</style>
+                            <div class="modal-body" id="modal_edit">
+                               <div class="card mb-4" style="height: 331px;top:0px;">
+                                  <h5 class="card-header" style="background: #d3dcf3;">LES DONNÉES DU CLIENT :</h5>
+                                  <!-- Account -->
+                              
+                                  <hr class="my-0" />
+                                  <div class="card-body">
+
+
+                                    <form id="formAccountSettings" method="POST"  >
+                                      <div class="row">
+                               
+                                <div class="mb-3 col-md-2">
+                                  <label for="lastName" class="form-label">Site</label>
+                                  
+                        
+                             {% for miss in mission %}
+                                
+                                   
+                                   <input class="form-control txtsite" type="text" name="lastName" at="{{miss.id}}" id="mission" value="{{miss.abreviation}}" readonly/>
+                                     
+                          
+                          
+                          </div>
+                            <div class="mb-3 col-md-2">
+                            <label for="lastName" class="form-label">Demandeur</label>
+                            <input class="form-control txtDemandeur" type="text" name="lastName" id="lastName" value="{{miss.benificiare}}" readonly/>
+                          </div>
+                          <div class="mb-3 col-md-2">
+                            <label for="email" class="form-label">Npt</label>
+                            <input
+                              class="form-control nptTxt"
+
+                              type="number" 
+                              value="{{miss.nb_personnes}}"
+                             
+                             
+                            readonly/>
+                          </div>
+
+                          <div class="mb-3 col-md-2">
+                            <label for="organization" class="form-label">Ville de destination :</label>
+                            <input
+                              type="text"
+                              class="form-control"
+                              value="{{miss.ville_mission}}"
+                             
+                            readonly/>
+                          </div>
+                          <div class="mb-3 col-md-2">
+
+                            <label class="form-label" for="phoneNumber">Numero Tel :</label>
+                            <div class="input-group input-group-merge">
+                              <span class="input-group-text">MAR (+212)</span>
+                              <input
+                                type="text"
+                                id="phoneNumber"
+                                name="phoneNumber"
+
+                                class="form-control txtNum"
+
+                                value="{{miss.telephone}}"
+                              readonly/>
+                            </div>
+                          </div>
+
+                          <div class="mb-3 col-md-4">
+                            <label for="address" class="form-label">Address :</label>
+                            <input type="text" class="form-control txtAdress" id="address" name="address"  value="{{miss.adress_mission}}" readonly/>
+                          </div>
+                          <div class="mb-3 col-md-2">
+                            <label for="state" class="form-label">Date depart : </label>
+                             <input
+                            class="form-control dtpDepart"
+                            type="date"
+                            value="{{miss.date_depart | date("Y-m-d")}}"
+                            id="html5-datetime-local-input"
+                          readonly/>
+                          </div>
+                          <div class="mb-3 col-md-2">
+                            <label for="zipCode" class="form-label">Date retour : </label>
+                            <input
+                            class="form-control dtpRetour"
+                            type="date"
+                            value="{{miss.date_retour | date("Y-m-d")}}"
+                            id="html5-datetime-local-input"
+                          readonly/>
+                          </div>
+                          <div class="mb-3 col-md-2">
+                            <label class="form-label" for="country">Heure :</label>
+                          <input class="form-control txtHeure" type="time" value="{{miss.heure_depart}}" id="html5-time-input" readonly/>
+                          </div>
+                         
+                           
+                         
+                         
+                           <div id="defaultFormControlHelp" class="form-text">
+                          NPT : Nombre des personnes à transporter
+
+                        </div>
+
+                         
+                         
+                         
+                        </div>
+                             {% endfor %}
+                      
+                      </form>
+                     </div>
+                    <!-- /Account -->
+                  </div>
+                 <div class="card mb-3" style="height:400px;top: -12px;">
+                    <h5 class="card-header" style="background: #d3dcf3;">LES Tarifs :</h5>
+                    <!-- Account -->
+                    <label for="" class="idDemandeM"></label>
+                    <hr class="my-0" />
+                    <div class="card-body">
+                      <form id="formAccountSettings" method="POST" onsubmit="return false">
+                        <div class="row">
+                            
+                         
+                        
+                       
+                         
+                        
+                        
+
+                        </div>
+                      
+                    
+                          <div class="spacetable" style="height:210px;">
+
+                            {# <table class="table">
+                              <thead>
+                               
+                              </thead>
+                              <tbody class="table-border-bottom-0 tbodylisteprestation_2">
+                             {% for site in all_sites %}
+
+                                <tr class="table-default">
+                                 <td data-id="2">{{site.designation}}</td>
+                                <td data-id="3">{{site.name}}</td>
+                                <td data-id"2"="">{{site.veh}}</td>
+                                </tr>
+                                {% endfor %}
+                               <tr>
+                               <td  data-id="0"></td>
+                                <td data-id="0"></td>
+                                <td data-id="0"></td>
+                               </tr>
+                              
+                              </tbody>
+                            </table> #}
+ <table class="rwd-table">
+    <tbody>
+    
+                                 <tr class="table-default" style="background:#7789b5;">
+                                 <td data-id="1">Id</td>
+                                 <td data-id="2">Type Prestation</td>
+                                <td data-id="3">Prestation</td>
+                                <td data-id"2"="">Type Vehicule</td>
+                                <td data-id"2"="">Tarif Prestation</td>
+                                <td data-id"2"="">Nombre de jour</td>
+                                <td data-id"2"="">Kilometrage</td>
+                                <td data-id"2"="">Carburant</td>
+                                <td data-id"2"="">jawaz</td>
+                                <td data-id"2"="">Week-end</td>
+                                <td data-id"2"="">Nuit</td>
+                                <td data-id"2"="">Remise</td>
+                                <td data-id"2"="" style="background-color: crimson;">Tarif</td>
+                                </tr>
+      {% for site in all_sites %}
+
+                                <tr class="table-default">
+                                 <td data-id="1">{{site.id}}</td>
+                                 <td data-id="2">{{site.designation}}</td>
+                                <td data-id="3">{{site.nam}}</td>
+                                <td data-id"2"="">{{site.veh}}</td>
+                                  {% for tari in tarif %}
+
+                                  {% if tari.id == site.id %}
+
+                                <td data-id"2"="">{{tari.tarif_prestation}}</td>
+                                {% endif %}
+                                {% endfor %}
+                                <td data-id"2"="">{{site.nbrj}}</td>
+                                <td data-id"2"="">{{site.km}}</td>
+                                <td data-id"2"="">{{site.carburant}}</td>
+                                <td data-id"2"="">{{site.jawaz}}</td>
+                                {% if site.maj_weekend == 1 %}<td data-id"2"="">Oui</td>{% else %}<td data-id"2"="">No</td>
+                                    {% endif %}
+                                {% if site.maj_nuit == 1 %}<td data-id"2"="">Oui</td>{% else %}<td data-id"2"="">No</td>
+                                    {% endif %}
+                                
+                                
+                                <td data-id"2"="">{{site.remise}}</td>
+      {% for tari in tarif %}
+
+{% if tari.id == site.id %}
+
+                                <td data-id"2"="" style="background-color: #efa9af;">{{tari.tarif}} Dh</td>
+                                {% endif %}
+                                {% endfor %}
+
+                                </tr>
+                                {% endfor %}
+                </tbody>
+                            </table>            
+                          
+                        </div>
+                      </form>
+                    </div>
+                    <!-- /Account -->
+                  </div>
+                              </div>

@@ -1,0 +1,67 @@
+ {% extends 'base_tow.html.twig' %}
+
+{% block title %}Home
+{% endblock %} 
+{% block body %}
+	{% block stylesheets %}
+			<link rel="stylesheet" href="{{ asset('bootstrap/css/bootstrap.min.css') }}"/>
+			<link rel="stylesheet" href="{{asset('fontawesom/css/all.min.css')}}">
+            <link rel="stylesheet" href="{{asset('css/models.css')}}">
+
+
+
+		{% endblock %}
+
+	<body>
+		<div class="container">
+			<h1 class="heading">Models</h1>
+			<div class="accordion-container">
+
+				<div class="accordion active">
+					<div class="accordion-heading">
+						<h3>HCZ APPROVISIONNEMENT/PHARMACIE (CHEF)</h3>
+						<i class="fas fa-angle-down"></i>
+					</div>
+					<p class="accordion-content">
+						<i class="fas fa-folder-open"></i>
+						<a href="{{path('home_sidbar')}}">user1</a>
+						<br>
+						<i class="fas fa-folder-open"></i>
+						<a href="{{path('home_sidbar')}}">user2</a>
+					</p>
+				</div>
+
+				<div class="accordion">
+					<div class="accordion-heading">
+						<h3>HCZ DIRECTION GÉNÉRALE (FR)</h3>
+						<i class="fas fa-angle-down"></i>
+					</div>
+					<p class="accordion-content">
+						<i class="fas fa-folder-open"></i>
+						<a href="{{path('home_sidbar')}}">user1</a>
+					</p>
+				</div>
+
+				<div class="accordion">
+					<div class="accordion-heading">
+						<h3>HCZ FACTURATION /HOSPITALISATION AB (FR)</h3>
+						<i class="fas fa-angle-down"></i>
+					</div>
+					<p class="accordion-content">
+						<i class="fas fa-folder-open"></i>
+						<a href="{{path('home_sidbar')}}">user1</a>
+					</p>
+				</div>
+
+				<a class="btn btn-secondary" href="{{ path('app_logout') }}">
+					<i class="fas fa-sign-out-alt"></i>
+					<span class="nav_name">Logout</span>
+				</a>
+				<a href="#" class="btn btn-success">
+					<i class="far fa-user"></i><span class="nav_name">{{ app.user.username }}</span>
+
+				</a>
+			</div>
+		</div>
+	</body>
+{% endblock %}

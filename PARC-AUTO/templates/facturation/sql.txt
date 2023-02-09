@@ -1,0 +1,7 @@
+SELECT  fac.id as "id_facture",fac.code_facture,pre.name,pre.tarif_prestation,msn.ville_mission,fac.mt_total,msn.id as "id_mission"
+
+FROM `facture` fac
+INNER JOIN facture_det det on det.facture_id = fac.id
+INNER JOIN prestation pre on pre.id = det.prestation_id
+INNER JOIN mission_cab msn on msn.id = fac.mission_id
+WHERE fac.id =  43

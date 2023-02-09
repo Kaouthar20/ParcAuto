@@ -1,0 +1,282 @@
+
+                            
+                            <style>
+                            td{
+                               text-align: center;
+  vertical-align: middle;
+                            }
+                            select{
+                              border: none;
+                            }
+                            input{
+                              border:none;
+                            }
+                            </style>
+                            <div class="modal-body" id="modal_initiation" style="padding:0.5rem 1rem 1rem 0.5rem;">
+                               <div class="card mb-4">
+                                  <h5 class="card-header" style="background: #d3dcf3;">LES DONNÉES DU CLIENT :</h5>
+                                  <!-- Account -->
+                              
+                                  <hr class="my-0" />
+                                  <div class="card-body">
+
+
+                                    <form id="formAccountSettings" method="POST"  >
+                                      <div class="row">
+                               
+                                <div class="mb-3 col-md-4">
+                                  <label for="lastName" class="form-label">Site</label>
+                                  
+                        
+                             {% for miss in mission %}
+                                
+                                   
+                                   <input class="form-control txtsite" type="text" name="lastName" data-id="{{miss.abreviation}}" id="lastName" value="{{miss.abreviation}}" readonly/>
+                                     
+                          
+                          
+                          </div>
+                            <div class="mb-3 col-md-2">
+                            <label for="lastName" class="form-label">Demandeur</label>
+                            <input class="form-control txtDemandeur" type="text" name="lastName" id="lastName" value="{{miss.benificiare}}" readonly/>
+                          </div>
+                          <div class="mb-3 col-md-2">
+                            <label for="email" class="form-label">Nombre des personnes</label>
+                            <input
+                              class="form-control nptTxt"
+                                readonly
+                              type="number" 
+                              value="{{miss.nb_personnes}}"
+                             
+                             
+                            />
+                          </div>
+ <input
+                              type="text"
+                              class="form-control lblidmissioncab"
+                              value="{{miss.id}}"
+                             hidden
+                            />
+                          <div class="mb-3 col-md-2">
+                            <label for="organization" class="form-label">Ville de destination :</label>
+                            <input
+                              type="text"
+                              class="form-control"
+                              value="{{miss.ville_mission}}"
+                             readonly
+                            />
+                          </div>
+                          <div class="mb-3 col-md-2">
+
+                            <label class="form-label" for="phoneNumber">Numero Tel :</label>
+                            <div class="input-group input-group-merge">
+                              <input
+                                type="text"
+                                id="phoneNumber"
+                                name="phoneNumber"
+
+                                class="form-control txtNum"
+                                readonly
+                                value="{{miss.telephone}}"
+                              />
+                            </div>
+                          </div>
+
+                          <div class="mb-3 col-md-4">
+                            <label for="address" class="form-label">Address :</label>
+                            <input type="text" class="form-control txtAdress" id="address" name="address" readonly  value="{{miss.adress_mission}}" />
+                          </div>
+                          <div class="mb-3 col-md-2">
+                            <label for="state" class="form-label">Date depart : </label>
+                             <input
+                            class="form-control dtpDepart"
+                            type="datetime-local"
+                            value="{{miss.date_depart}}"
+                            id="html5-datetime-local-input"
+                            readonly
+                          />
+                          </div>
+                          <div class="mb-3 col-md-2">
+                            <label for="zipCode" class="form-label">Date retour : </label>
+                            <input
+                            class="form-control dtpRetour"
+                            type="datetime-local"
+                            value="{{miss.date_retour}}"
+                            readonly
+                            id="html5-datetime-local-input"
+                          />
+                          </div>
+                          <div class="mb-3 col-md-2">
+                            <label class="form-label" for="country">Heure :</label>
+                          <input class="form-control txtHeure" type="time" value="{{miss.heure_depart}}" id="html5-time-input" readonly />
+                          </div>
+                         
+                         
+                         
+                         
+                         
+                        </div>
+                             {% endfor %}
+                      
+                      </form>
+                     </div>
+                    <!-- /Account -->
+                  </div>
+                 {# <div class="card mb-3" style="height:400px;top: -12px;"> #}
+                      {# <h5 class="card-header" style="background: #d3dcf3;">CHOIX DES PRESTATIONS :</h5>
+                      <!-- Account -->
+                      <label for="" class="idDemandeM"></label> #}
+                    <hr class="my-0" />
+                    <div class="card-body">
+                      <form id="formAccountSettings" method="POST" onsubmit="return false">
+                    
+                    
+                          <div class="spacetable" >
+
+          
+                   <div class="table table-striped" style="height:100%;">
+                  <table class="table table-bordered initiertable">
+                    <thead>
+                      <tr style="background: #d3dcf3;">
+                        <th hidden>Type Prestation</th>
+                        <th hidden>Type Prestation</th>
+                        <th>#</th>
+                        <th>Type Prestation</th>
+                        <th>Prestation</th>
+                        <th>Type Vehicule</th>
+                        <th>Vehicule</th>
+                        <th>Kilometrage</th>
+                        <th>Conducteur</th>
+                        <th>Status</th>
+                      </tr>
+                    </thead>
+                    <tbody class="table-border-bottom-0 tbodylisteprestation_3">
+                    
+                      {% for site in all_sites %}
+
+                                <tr  id="{{site.id}}">
+                                <td hidden>{{site.id}}</td>
+                                <td hidden>{{site.idp}}</td>
+                                {% if site.is_initier != 1 %}
+                                 <td data-id="2"><input class="form-check-input" type="checkbox" value="" id="defaultCheck1"></td>
+
+                                {% else %}
+                                 <td data-id="2"></td>
+
+                                {% endif %}
+
+                                 <td data-id="2">{{site.designation}}</td>
+                                <td data-id="3">{{site.idp}}</td>
+                                <td data-id"2"="">{{site.veh}}</td>
+
+                                {#  start ////////// vehicule / #}
+                                {% if site.is_initier == 1 %}
+                                       <td data-id"2"="">{{site.matricule }}</td>
+                                      {% else %}
+                                         <td data-id"2"=""><select id="{{site.id}}vehiselect" class="form-select" style="border:none;">
+                                     {% for veh in vehicule %}
+                                       <option value="{{veh.id}}">{{veh.Matricule}}</option>
+                                      {% endfor %}
+                                      </select></td>
+                                       {% endif %}
+                                {# end ////////// vehicule / #}
+
+                                {# start ////////// kilometrage / #}
+
+
+                                {% if site.is_initier == 1 %}
+
+                                  <td data-id"2"=""> {{ site.km_depart }}</td>
+
+                                {% else %}
+
+                              {% if site.kilocheck == 1 %}
+                                  <td data-id"2"=""><input class="form-control" id="{{site.id}}kilo" type="number" style="border:none;" id="html5-number-input"></td> 
+                                  {% else %}
+                                <td></td>
+                                {% endif %}
+                                      {% endif %}
+
+                                {# end ////////// kilometrage / #}
+
+                                {# start ////////// conducteur / #}
+
+
+                                {% if site.is_initier == 1 %}
+                             <td data-id"2"="">{{site.nom_canducteur}}</td>
+
+                                {% else %}
+
+                               
+                         {% if site.conduccheck == 1 %} 
+                           <td data-id"2"="">
+                        <select id="{{site.id}}condselect" class="form-select" style="border:none;">    
+                            {% for con in conducteur %}
+ 
+                                      <option value="{{con.id}}">{{con.NomCanducteur}}</option>
+                                      {% endfor %}
+                        </select>
+                          </td>
+                        {% else %}
+                        <td data-id"2"=""></td>
+                        {% endif %}
+                                {% endif %}
+                                {# end ////////// conducteur / #}
+                         
+                               
+                      
+                               
+
+                                {% if site.is_initier != 1 %}
+                               <td data-id"2"=""> <label hidden>Faut initier</label>
+                                <button class="btn" at="201" art="33"> <i class="tf-icons bx bx-calendar-edit"></i></button></td>
+                                {% else %}
+                                
+                               <td> <button class="btn" at="201" art="33" onclick=" window.open('etatInitier/{{site.id}}','_blank')"> <i style="font-size: 1.8rem !important;" class='bx bxs-file-pdf'></i></button></td>
+                                
+                                {% endif %}
+                                
+                                {% endfor %} 
+
+                                </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                        </div>
+                      </form>
+                    </div>
+                    <!-- /Account -->
+                  </div>
+                              </div>
+
+                               <!-- Modal -->
+                        <div class="modal fade" id="modalConfirmationInitiation" tabindex="-1" aria-hidden="true" style="margin-top:30%">
+                        
+                            <div class="modal-dialog modal-dialog-scrollable" role="document">
+                                                      <div class="modal-content" style="width: 500px;left:50px">
+                                                        <div class="modal-header">
+                                                          <h5 class="modal-title" id="modalFullTitle">INITIER MISSION</h5>
+                                                            <button
+                                                              type="button"
+                                                              class="btn-close"
+                                                              data-bs-dismiss="modal"
+                                                              aria-label="Close"
+                                                            ></button>
+                                                        </div>
+                                                                                    <div class="modal-body" id="modal_initiation_v2">
+
+                       
+
+                           </div>
+                              <div class="modal-footer">
+                              
+                                  {# {% for site in all_sites %} #}
+                                <button type="submit" class="btn btn-primary EditerMission_v2" >initier </button>
+                                {# {% endfor %} #}
+                              </div>
+                           
+                            </div>
+                          </div>
+                          </div>
+    <!-- END -->

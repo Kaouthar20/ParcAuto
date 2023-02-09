@@ -1,0 +1,42 @@
+<div class="row text-center">
+    <div class="col-md-12">
+        <label for="Site" class="form-label"> véhicule: </label>
+        <input type="text" data-id="{{relationMission}}"  class="txtidrelationmission" hidden />   
+        <select id="country" class="select2 DDLvehicule form-select">
+     <option value="">Vehicule</option>
+            {% for item in vehicule %}
+            <option value="{{item.id}}">{{item.Matricule}}</option>
+            {% endfor %}
+    
+   </select>
+    </div>
+    {# {% set cpt = 0 %} #}
+{# {% for item in typePrestation %} #}
+{# <input type="text" value="{{cpt}}"/> #}
+ {% if prestation.Conducteur == 1 %}
+    <div class="col-md-12">
+        <label for="Site" class="form-label"> Conducteur: </label>
+       
+                         
+        <select id="country" class="select2 DDLconducteur form-select" >
+      
+     <option value="">Conducteur</option>
+     {% for item in conducteur %}
+        <option value="{{item.id}}">{{item.NomCanducteur}}</option>
+     {% endfor %}
+        
+   </select>
+
+  
+    </div>
+
+{% endif %}
+{% if prestation.Kilometrage == 1 %}
+    <div class="col-md-12">
+        <label for="Site" class="form-label"> Kilometrage: </label>
+         <input type="text" class="form-control txtKm" id="" name=""  />         
+       
+    </div>
+    {% endif %}
+{# {% endfor %} #}
+</div>

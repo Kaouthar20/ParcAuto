@@ -1,0 +1,40 @@
+{% extends 'template.html.twig' %}
+{% block body %}
+	<div class="container ">
+		<form action="{{path('new_article')}}" method="post">
+
+			<label for="nom" class="form-label">Nom :</label>
+			<input type="text" class="form-control" name="nom" id="nom">
+			<label for="prixAchat" class="form-label">Prix d'achat:</label>
+			<input type="float" min="0" class="form-control" name="prixAchat" id="prixAchat" >
+			<label for="quantite" class="form-label">Quantité :</label>
+			<input type="number" class="form-control" name="quantite" id="quantite" >
+			<label for="code" class="form-label">Code :</label>
+			<input type="number" class="form-control" name="code" id="code" >
+			<label for="date" class="form-label">Date d'experation :</label>
+			<input type="date" class="form-control" name="date" id="date" >
+			<label for="stock" class="form-label">stock :</label>
+
+			<select class="form-select form-select-sm" name="stock" aria-label=".form-select-sm example">
+				<option selected>select un stock</option>
+				{% for stock in stocks %}
+					<option value="{{stock.id}}">{{stock.nom}}</option>
+				{% endfor %}
+			</select>
+
+			<label for="famille" class="form-label">Famille :</label>
+			<select class="form-select form-select-sm" name="famille" aria-label=".form-select-sm example">
+				<option selected>select une fammille</option>
+				{% for famille in familles %}
+					<option value="{{famille.id}}">{{famille.nom}}</option>
+				{% endfor %}
+			</select>
+<label for="prixVente" class="form-label">Prix de vente:</label>
+			<input type="float" min="0" class="form-control" name="prixVente" id="prixVente" >
+			<label for="tva" class="form-label">TVA :</label>
+			<input type="number" class="form-control" name="tva" id="tva" >
+			<button class="submit btn btn-sm btn-success mt-3">
+				Enregistrer</button>
+		</form>
+	</div>
+{% endblock %}

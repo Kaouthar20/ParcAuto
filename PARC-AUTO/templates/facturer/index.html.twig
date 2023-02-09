@@ -1,0 +1,536 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello MissionController!
+{% endblock %}
+
+{% block body %}
+	<style>
+		.example-wrapper {
+			margin: 1em auto;
+			max-width: 800px;
+			width: 95%;
+			font: 18px / 1.5 sans-serif;
+		}
+		.example-wrapper code {
+			background: #F5F5F5;
+			padding: 2px 6px;
+		}
+		.btn-buy-now {}
+	</style>
+	<!DOCTYPE html>
+
+	<!-- =========================================================
+	* Sneat - Bootstrap 5 HTML Admin Template - Pro | v1.0.0
+	==============================================================
+	
+	* Product Page: https://themeselection.com/products/sneat-bootstrap-html-admin-template/
+	* Created by: ThemeSelection
+	* License: You must have a valid license purchased in order to legally use the theme for your project.
+	* Copyright ThemeSelection (https://themeselection.com)
+	
+	=========================================================
+	 -->
+	<!-- beautify ignore:start -->
+		<html lang="en" class="light-style layout-menu-fixed" dir="ltr" data-theme="theme-default" data-assets-path="/assets/" data-template="vertical-menu-template-free"> <head>
+			<meta charset="utf-8"/>
+			<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"/>
+
+			<title>Dashboard - Analytics | Sneat - Bootstrap 5 HTML Admin Template - Pro</title>
+
+			<meta
+			name="description" content=""/>
+
+			<!-- Favicon -->
+			<link
+			rel="icon" type="image/x-icon" href="/assets/img/favicon/favicon.ico"/>
+
+			<!-- Fonts -->
+			<link rel="preconnect" href="https://fonts.googleapis.com"/>
+			<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+			<link
+			href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet"/>
+
+			<!-- Icons. Uncomment required icon fonts -->
+			<link
+			rel="stylesheet" href="/assets/vendor/fonts/boxicons.css"/>
+
+			<!-- Core CSS -->
+			<link rel="stylesheet" href="/assets/vendor/css/core.css" class="template-customizer-core-css"/>
+			<link rel="stylesheet" href="/assets/vendor/css/theme-default.css" class="template-customizer-theme-css"/>
+			<link
+			rel="stylesheet" href="/assets/css/demo.css"/>
+
+			<!-- Vendors CSS -->
+			<link rel="stylesheet" href="/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css"/>
+
+			<link rel="stylesheet" href="/assets/vendor/libs/apex-charts/apex-charts.css"/>
+
+			<!-- Page CSS -->
+
+			<!-- Helpers --><script src="/assets/vendor/js/helpers.js"> </script>
+
+			<!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
+			<!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
+			<script src="/assets/js/config.js"></script>
+		</head>
+
+		<body>
+			<!-- Layout wrapper -->
+			<div class="layout-wrapper layout-content-navbar">
+				<div
+					class="layout-container">
+					<!-- Menu -->
+
+					{{ parent() }}
+
+					<!-- Layout container -->
+					<div
+						class="layout-page">
+						<!-- Navbar -->
+
+						<nav class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme" id="layout-navbar">
+							<div class="layout-menu-toggle navbar-nav align-items-xl-center me-3 me-xl-0 d-xl-none">
+								<a class="nav-item nav-link px-0 me-xl-4" href="javascript:void(0)">
+									<i class="bx bx-menu bx-sm"></i>
+								</a>
+							</div>
+
+							<div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
+								<!-- Search -->
+
+								<!-- /Search -->
+
+									<ul class="navbar-nav flex-row align-items-center ms-auto"> <!-- Place this tag where you want the button to render. -->
+									{# <li class="nav-item lh-1 me-3">
+									                  <a
+									                    class="github-button"
+									                    href="https://github.com/themeselection/sneat-html-admin-template-free"
+									                    data-icon="octicon-star"
+									                    data-size="large"
+									                    data-show-count="true"
+									                    aria-label="Star themeselection/sneat-html-admin-template-free on GitHub"
+									                    >Star</a
+									                  >
+									                </li> #}
+
+									<!-- User -->
+										<li class="nav-item navbar-dropdown dropdown-user dropdown"> <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
+											<div class="avatar avatar-online">
+												<img src="/assets/img/avatars/1.png" alt class="w-px-40 h-auto rounded-circle"/>
+											</div>
+										</a>
+										<ul class="dropdown-menu dropdown-menu-end">
+											<li>
+												<a class="dropdown-item" href="#">
+													<div class="d-flex">
+														<div class="flex-shrink-0 me-3">
+															<div class="avatar avatar-online">
+																<img src="/assets/img/avatars/1.png" alt class="w-px-40 h-auto rounded-circle"/>
+															</div>
+														</div>
+														<div class="flex-grow-1">
+															<span class="fw-semibold d-block">John Doe</span>
+															<small class="text-muted">Admin</small>
+														</div>
+													</div>
+												</a>
+											</li>
+											<li>
+												<div class="dropdown-divider"></div>
+											</li>
+											<li>
+												<a class="dropdown-item" href="#">
+													<i class="bx bx-user me-2"></i>
+													<span class="align-middle">My Profile</span>
+												</a>
+											</li>
+											<li>
+												<a class="dropdown-item" href="#">
+													<i class="bx bx-cog me-2"></i>
+													<span class="align-middle">Settings</span>
+												</a>
+											</li>
+											<li>
+												<a class="dropdown-item" href="#">
+													<span class="d-flex align-items-center align-middle">
+														<i class="flex-shrink-0 bx bx-credit-card me-2"></i>
+														<span class="flex-grow-1 align-middle">Billing</span>
+														<span class="flex-shrink-0 badge badge-center rounded-pill bg-danger w-px-20 h-px-20">4</span>
+													</span>
+												</a>
+											</li>
+											<li>
+												<div class="dropdown-divider"></div>
+											</li>
+											<li>
+												<a class="dropdown-item" href="auth-login-basic.html">
+													<i class="bx bx-power-off me-2"></i>
+													<span class="align-middle">Log Out</span>
+												</a>
+											</li>
+										</ul>
+									</li>
+									<!--/ User -->
+								</ul>
+							</div>
+						</nav>
+
+						<!-- / Navbar -->
+
+						<!-- Content wrapper -->
+						<div
+							class="content-wrapper">
+							<!-- Content -->
+
+							<div class="container-xxl flex-grow-1 container-p-y">
+								<div
+									class="row">
+									<!-- Contextual Classes -->
+
+									<div class="card" style="height: 700px;">
+										<h5 class="card-header">Liste des Factures
+											<div style="margin-left: 260px;
+												    font-size: 15px;
+												    width: 340px;" class="form-check form-check-inline">
+												<label for="Site" class="form-label">Site:
+												</label>
+
+												<select id="country" class="select2 form-select">
+													<option value="">Select</option>
+													<option value="site">Site</option>
+													<option value="site">Site</option>
+													<option value="site">Site</option>
+													<option value="site">Site</option>
+													<option value="site">Site</option>
+													<option value="site">Site</option>
+													<option value="site">Site</option>
+
+												</select>
+
+											</div>
+											<div style="font-size: 15px;" class="form-check form-check-inline mt-3">
+												<label for="state" class="form-label">Date depart :
+												</label>
+												<input class="form-control" type="date" value="2021-06-18T12:30:00" id="html5-datetime-local-input"/>
+											</div>
+											<div style="font-size: 15px;" class="form-check form-check-inline">
+												<label for="state" class="form-label">Date depart :
+												</label>
+												<input class="form-control" type="date" value="2021-06-18T12:30:00" id="html5-datetime-local-input"/>
+											</div>
+
+											<div style="font-size: 15px;" class="form-check form-check-inline">
+												<button type="button" class="btn btn-outline-success">
+													<span class="tf-icons bx bx-book-open"></span>&nbsp; Excel
+												</button>
+											</div>
+										</h5>
+
+										<div class="table-responsive text-nowrap">
+											<table id="table_id" class="display compact">
+												<thead>
+													<tr style="background:#e7e7ff;text-align:center;">
+														<th>#</th>
+														<th>Site
+														</th>
+														<th>Demandeur</th>
+														<th>Description</th>
+														<th>Date debut</th>
+														<th>Date fin</th>
+														<th>Heure</th>
+														<th>Npt</th>
+														<th>status</th>
+														<th>Action</th>
+														<th hidden>Action</th>
+													</tr>
+												</thead>
+												<tbody id="data_table" class="tabrow">
+													{% for item in mission %}
+
+														<tr style="text-align:center">
+															<td
+																style="width:2%">{# {{item.idm}}  #}
+
+
+															</td>
+															<td>{{item.abreviation}}</td>
+															<td>{{item.abreviation}}</td>
+															<td>{{item.benificiare}}
+															</td>
+															<td>
+																{{item.date_depart | date('Y-m-d')}}
+															</td>
+															<td>
+																{{item.date_retour | date('Y-m-d')}}</td>
+															<td>
+																{{item.heure_depart}}
+															</td>
+															<td>
+																{{item.nb_personnes	}}
+															</td>
+															<td>
+																{% if item.statut_id == 1  %}
+																	<span class="badge bg-label-info">Creer</span>
+																{% elseif item.statut_id == 2 %}
+																	<span class="badge bg-label-primary">Initier</span>
+																{% else %}
+																	<span class="badge bg-label-success me-1">Valider</span>
+																{% endif %}
+															</td>
+															<td hidden>
+																{% if item.statut_id == 1  %}1{% elseif item.statut_id == 2 %}2{% else %}3
+																{% endif %}
+															</td>
+															{# <td>
+															           {{item.statut}}
+															          </td> #}	
+															<td style="width:2%">
+																<div class="btn-group">
+																	<button type="button" style="border: 0;background-color: transparent;" class=" btn-icon rounded-pill dropdown-toggle hide-arrow" data-bs-toggle="dropdown" aria-expanded="false">
+																		<i class="bx bx-dots-vertical-rounded"></i>
+																	</button>
+																	<ul class="dropdown-menu dropdown-menu-end" style="">
+																		<li>
+																			<a class="dropdown-item editer" at="{{item.idm}}">
+																				<i class="menu-icon tf-icons bx bx-edit"></i>Editer</a>
+																		</li>
+																		<li>
+																			<a class="dropdown-item initier" at="{{item.idm}}">
+																				<i class="menu-icon tf-icons bx bx-folder-plus"></i>Initier</a>
+																		</li>
+																		<li>
+																			<hr class="dropdown-divider">
+																		</li>
+																		<li>
+																			<a class="dropdown-item valider" at="{{item.idm}}">
+																				<i class="menu-icon tf-icons bx bx-check-square"></i>Valider</a>
+																		</li>
+																	</ul>
+																</div>
+															</td>
+														</tr>
+													{% endfor %}
+												</tbody>
+											</table>
+										</div>
+									</div>
+									<!--/ Contextual Classes -->
+								</div>
+							</div>
+
+
+						</div>
+						<!-- Content wrapper -->
+					</div>
+					<!-- / Layout page -->
+				</div>
+
+				<!-- Overlay -->
+				<div class="layout-overlay layout-menu-toggle"></div>
+			</div>
+			<!-- / Layout wrapper -->
+
+			<div class="buy-now">
+				<a href="https://themeselection.com/products/sneat-bootstrap-html-admin-template/" class="btn btn-danger btn-buy-now" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#fullscreenModal">Demander Mission</a>
+			</div>
+
+
+			<!-- Modal -->
+			<div class="modal fade" id="detaimmissionmodal" tabindex="-1" aria-hidden="true">
+				<div class="modal-dialog modal-fullscreen" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="modalFullTitle">DEMANDER UNE MISSION</h5>
+							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+						</div>
+						<div class="modal-body">
+							<div class="card mb-4" style="height: 416px;">
+								<h5 class="card-header" style="background: #d3dcf3;">LES DONNÉES DU CLIENT :</h5>
+								<!-- Account -->
+
+								<hr class="my-0"/>
+								<div class="card-body">
+									<form id="formAccountSettings" method="POST" onsubmit="return false">
+										<div class="row">
+											<div class="mb-3 col-md-4">
+												<label for="Site" class="form-label">Site</label>
+
+												<select id="country" class="select2 form-select">
+													<option value="">Select</option>
+													fo
+													<option value="site">Site</option>
+
+
+												</select>
+
+											</div>
+											<div class="mb-3 col-md-4">
+												<label for="lastName" class="form-label">Demandeur</label>
+												<input class="form-control" type="text" name="lastName" id="lastName" value="Demandeur"/>
+											</div>
+											<div class="mb-3 col-md-4">
+												<label for="email" class="form-label">Nbt</label>
+												<input class="form-control" type="number"/>
+											</div>
+											<div class="mb-3 col-md-4">
+												<label for="organization" class="form-label">Ville de destination :</label>
+												<input type="text" class="form-control"/>
+											</div>
+											<div class="mb-3 col-md-4">
+												<label class="form-label" for="phoneNumber">Numero Tel :</label>
+												<div class="input-group input-group-merge">
+													<span class="input-group-text">MAR (+212)</span>
+													<input type="text" id="phoneNumber" name="phoneNumber" class="form-control" placeholder="662725090"/>
+												</div>
+											</div>
+											<div class="mb-3 col-md-4">
+												<label for="address" class="form-label">Address :</label>
+												<input type="text" class="form-control" id="address" name="address" placeholder="Address"/>
+											</div>
+											<div class="mb-3 col-md-4">
+												<label for="state" class="form-label">Date depart :
+												</label>
+												<input class="form-control" type="datetime-local" value="2021-06-18T12:30:00" id="html5-datetime-local-input"/>
+											</div>
+											<div class="mb-3 col-md-4">
+												<label for="zipCode" class="form-label">Date retour :
+												</label>
+												<input class="form-control" type="datetime-local" value="2021-06-18T12:30:00" id="html5-datetime-local-input"/>
+											</div>
+											<div class="mb-3 col-md-4">
+												<label class="form-label" for="country">Heure :</label>
+												<input class="form-control" type="time" value="12:30:00" id="html5-time-input"/>
+											</div>
+											<div class="mb-3 col-md-4">
+												<input class="form-check-input" type="checkbox" value="" id="defaultCheck3" checked/>
+												<label class="form-check-label" for="defaultCheck3">
+													Majoration week-end
+												</label>
+											</div>
+											<div class="mb-3 col-md-4">
+												<input class="form-check-input" type="checkbox" value="" id="defaultCheck3" checked/>
+												<label class="form-check-label" for="defaultCheck3">
+													Majoration Nuit
+												</label>
+											</div>
+											<div id="defaultFormControlHelp" class="form-text">
+												NPT : Nombre des personnes à transporter
+
+											</div>
+
+
+										</div>
+
+									</form>
+								</div>
+								<!-- /Account -->
+							</div>
+							<div class="card mb-3" style="height:300px;">
+								<h5 class="card-header" style="background: #d3dcf3;">CHOIX DES PRESTATIONS :</h5>
+								<!-- Account -->
+
+								<hr class="my-0"/>
+								<div class="card-body">
+									<form id="formAccountSettings" method="POST" onsubmit="return false">
+										<div class="row">
+
+
+											<div class="mb-3 col-md-3">
+												<label for="Site" class="form-label">Type du prestation:
+												</label>
+
+												<select id="country" class="select2 form-select">
+													<option value="">Select</option>
+													<option value="site">Site</option>
+													<option value="site">Site</option>
+													<option value="site">Site</option>
+													<option value="site">Site</option>
+													<option value="site">Site</option>
+													<option value="site">Site</option>
+													<option value="site">Site</option>
+
+												</select>
+
+											</div>
+											<div class="mb-3 col-md-3">
+												<label for="Site" class="form-label">Type du véhicule:
+												</label>
+
+												<select id="country" class="select2 form-select">
+													<option value="">Select</option>
+													<option value="site">Site</option>
+													<option value="site">Site</option>
+													<option value="site">Site</option>
+													<option value="site">Site</option>
+													<option value="site">Site</option>
+													<option value="site">Site</option>
+													<option value="site">Site</option>
+
+												</select>
+
+											</div>
+											<div class="mb-3 col-md-3">
+												<label for="Site" class="form-label">Prestation</label>
+
+												<select id="country" class="select2 form-select">
+													<option value="">Select</option>
+													<option value="site">Site</option>
+													<option value="site">Site</option>
+													<option value="site">Site</option>
+													<option value="site">Site</option>
+													<option value="site">Site</option>
+													<option value="site">Site</option>
+													<option value="site">Site</option>
+
+												</select>
+
+											</div>
+											<div class="mb-3 col-md-3">
+												<label for="Site" class="form-label"></label>
+
+												<button type="button" class="btn btn-outline-primary" style="margin-top: 30px;">
+													<span class="tf-icons bx bx-book-add"></span>&nbsp; Ajouter Prestation
+												</button>
+
+											</div>
+										</div>
+
+									</form>
+								</div>
+								<!-- /Account -->
+							</div>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+								Close
+							</button>
+							<button type="button" class="btn btn-primary">Save changes</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Core JS -->
+			<!-- build:js assets/vendor/js/core.js -->
+			<script src="/assets/vendor/libs/jquery/jquery.js"></script>
+			<script src="/assets/vendor/libs/popper/popper.js"></script>
+			<script src="/assets/vendor/js/bootstrap.js"></script>
+			<script src="/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+
+			<script src="/assets/vendor/js/menu.js"></script>
+			<!-- endbuild -->
+
+			<!-- Vendors JS -->
+			<script src="/assets/vendor/libs/apex-charts/apexcharts.js"></script>
+
+			<!-- Main JS -->
+			<script src="/assets/js/main.js"></script>
+
+			<!-- Page JS -->
+			<script src="/assets/js/dashboards-analytics.js"></script>
+
+			<!-- Place this tag in your head or just before your close body tag. -->
+			<script async defer src="https://buttons.github.io/buttons.js"></script>
+		</body>
+	</html>
+
+{% endblock %}

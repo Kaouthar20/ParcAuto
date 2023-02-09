@@ -1,0 +1,158 @@
+{# <body>
+		<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+  Consulter
+</button> 
+
+<!-- Modal -->
+{# <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+	 <div class="card text-start|center|end">
+		<div class="card" style="width: 100%;">
+
+			<div class="card-body">
+				<h5 class="card-title">Card title</h5>
+
+			</div> #}
+			{# <ul class="list-group list-group-flush">
+				<li class="list-group-item">{{article.nom}}</li>
+				<li class="list-group-item">{{article.prix}}</li>
+				<li class="list-group-item">{{article.quantite}}</li>
+				<li class="list-group-item">{{article.code}}</li>
+				<li class="list-group-item">{{article.dateExp | date('d/m/Y')}}</li>
+				<li class="list-group-item">{{article.stock}}</li>
+				<li class="list-group-item">{{article.famille}}</li>
+				<li class="list-group-item">{{article.typeArticle}}</li>
+			</ul> #}
+			{# <div class="card-body">
+				<button type="button" class="btn btn-outline-success">
+					<a href="{{path('liste_article')}}">Retour</a>
+				</button>
+
+
+			</div> #}
+		{# </div>
+	</div>
+   
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary consulterArticle" data-bs-dismiss="modal">Fermer</button>
+      
+      </div>
+    </div>
+  </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+
+	<script>
+		$(document).ready(function () {
+ 
+$("body").on("click", "#consulterArticle", function () {
+
+
+var nom = $("#nom").val();
+var prix = $('#prix').val();
+var quantite = $('#quantite').val();
+var code = $('#code').val();
+var dateExp = $('#dateExp').val();
+var stock = $('#stock').val();
+var famille = $('#famille').val();
+var typeArticle = $('#typeArticle').val();
+
+
+$.ajax({
+
+url: "{{ path('detail_article') }}",
+method: 'GET',
+data: {
+nom: nom,
+prix: prix,
+quantite: quantite,
+code: code,
+dateExp: dateExp,
+idstock: stock,
+idfamille: famille,
+idtypeArticle: typeArticle
+
+},
+success: function (result) {
+
+$(".modal").hide();
+$(".modal-backdrop").hide();
+setTimeout(function () {
+alert("Ajoute d'article avec success!")
+}, 200);
+
+}
+});
+}) #}
+
+{% extends "template.html.twig" %}
+{% block title %}
+	
+{% endblock %}
+{% block body %}
+
+{# 
+		<div class="card text-start|center|end">
+		<div class="card" style="width: 100%;">
+
+			<div class="card-body">
+				<h5 class="card-title">Card title</h5>
+
+			</div>
+			<ul class="list-group list-group-flush">
+				<li class="list-group-item">{{article.nom}}</li>
+				<li class="list-group-item">{{article.prix}}</li>
+				<li class="list-group-item">{{article.quantite}}</li>
+				<li class="list-group-item">{{article.code}}</li>
+				<li class="list-group-item">{{article.dateExp | date('d/m/Y')}}</li>
+				<li class="list-group-item">{{article.stock}}</li>
+				<li class="list-group-item">{{article.famille}}</li>
+				<li class="list-group-item">{{article.typeArticle}}</li>
+			</ul>
+			 <div class="card-body">
+				<button type="button" class="btn btn-outline-success">
+					<a href="{{path('liste_article')}}">Retour</a>
+				</button> 
+			</div>
+		</div>
+	</div> #}
+{% endblock %}
+
+{# 
+	<div class="div alert alert-success">d'étail d'une article</div>
+	<div class="card text-start|center|end">
+		<div class="card" style="width: 100%;">
+
+			<div class="card-body">
+				<h5 class="card-title">Card title</h5>
+
+			</div>
+			<ul class="list-group list-group-flush">
+				<li class="list-group-item">{{article.nom}}</li>
+				<li class="list-group-item">{{article.prix}}</li>
+				<li class="list-group-item">{{article.quantite}}</li>
+				<li class="list-group-item">{{article.code}}</li>
+				<li class="list-group-item">{{article.dateExp | date('d/m/Y')}}</li>
+				<li class="list-group-item">{{article.stock}}</li>
+				<li class="list-group-item">{{article.famille}}</li>
+				<li class="list-group-item">{{article.typeArticle}}</li>
+			</ul>
+			<div class="card-body">
+				<button type="button" class="btn btn-outline-success">
+					<a href="{{path('liste_article')}}">Retour</a>
+				</button>
+
+
+			</div>
+		</div>
+	</div> #}
+
+
+
